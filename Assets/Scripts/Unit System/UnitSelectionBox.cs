@@ -1,36 +1,46 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UnitSelectionBox : MonoBehaviour
 {
     Camera myCam;
 
-    [SerializeField]
-    RectTransform boxVisual;
+    [SerializeField] private RectTransform boxVisual;
 
     Rect selectionBox;
 
     Vector2 startPosition;
     Vector2 endPosition;
 
+    private bool isSelecting = false;
+
     private void Start()
     {
         myCam = Camera.main;
         startPosition = Vector2.zero;
         endPosition = Vector2.zero;
-        DrawVisual();
+        //DrawVisual();
+        ClearSelectionBoxVisual();
     }
 
     private void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject() && !isSelecting)
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
+            isSelecting = true;
             startPosition = Input.mousePosition;
             selectionBox = new Rect();
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && isSelecting)
         {
             if (boxVisual.rect.width > 0 || boxVisual.rect.height > 0)
             {
@@ -43,31 +53,33 @@ public class UnitSelectionBox : MonoBehaviour
             DrawSelection();
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && isSelecting)
         {
+            isSelecting = false;
             SelectUnits();
 
-            startPosition = Vector2.zero;
-            endPosition = Vector2.zero;
-            DrawVisual();
+            ClearSelectionBoxVisual();
         }
     }
 
-    void DrawVisual()
+    private void DrawVisual()
     {
+        if (!isSelecting)
+        {
+            return;
+        }
+
         Vector2 boxStart = startPosition;
         Vector2 boxEnd = endPosition;
 
         Vector2 boxCenter = (boxStart + boxEnd) / 2;
-
         boxVisual.position = boxCenter;
 
         Vector2 boxSize = new Vector2(Mathf.Abs(boxStart.x - boxEnd.x), Mathf.Abs(boxStart.y - boxEnd.y));
-
         boxVisual.sizeDelta = boxSize;
     }
 
-    void DrawSelection()
+    private void DrawSelection()
     {
         if (Input.mousePosition.x < startPosition.x)
         {
@@ -93,7 +105,7 @@ public class UnitSelectionBox : MonoBehaviour
         }
     }
 
-    void SelectUnits()
+    private void SelectUnits()
     {
         foreach (var unit in UnitSelectionManager.Instance.allUnitsList)
         {
@@ -102,5 +114,11 @@ public class UnitSelectionBox : MonoBehaviour
                 UnitSelectionManager.Instance.DragSelect(unit);
             }
         }
+    }
+
+    private void ClearSelectionBoxVisual()
+    {
+        boxVisual.sizeDelta = Vector2.zero;
+        boxVisual.position = Vector2.zero;
     }
 }
