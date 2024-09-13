@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlacementSystem : MonoBehaviour
 {
@@ -78,16 +79,25 @@ public class PlacementSystem : MonoBehaviour
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);
 
         bool placementValidity = CheckPlacementValidity(gridPosition, selectedObjectIndex);
-        if (!placementValidity)
+
+        if (!placementValidity || preview.IsOverlappingWithOtherObjects(grid.CellToWorld(gridPosition)))
         {
             return;
         }
 
         GameObject newObject = Instantiate(database.objectsData[selectedObjectIndex].Prefab);
         newObject.transform.position = grid.CellToWorld(gridPosition);
+
+        NavMeshObstacle[] obstacles = newObject.GetComponentsInChildren<NavMeshObstacle>();
+        foreach (NavMeshObstacle obstacle in obstacles)
+        {
+            obstacle.enabled = true;
+        }
+
         placedGameObjects.Add(newObject);
         GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ? floorData : furnitureData;
         selectedData.AddObjectAt(gridPosition, database.objectsData[selectedObjectIndex].Size, database.objectsData[selectedObjectIndex].ID, placedGameObjects.Count - 1);
+
         preview.UpdatePosition(grid.CellToWorld(gridPosition), false);
     }
 

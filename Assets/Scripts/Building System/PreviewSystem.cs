@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PreviewSystem : MonoBehaviour
 {
     [SerializeField] private float previewYOffset = 0.06f;
     [SerializeField] private GameObject cellIndicator;
-    [SerializeField] private Material previewMaterialPrefab; 
+    [SerializeField] private Material previewMaterialPrefab;    
     
     private Material previewMaterialInstance;
     private GameObject previewObject;
@@ -40,8 +41,14 @@ public class PreviewSystem : MonoBehaviour
 
     private void PreparePreview(GameObject previewObject)
     {
+        NavMeshObstacle[] obstacles = previewObject.GetComponentsInChildren<NavMeshObstacle>();
+        foreach (NavMeshObstacle obstacle in obstacles)
+        {
+            obstacle.enabled = false;
+        }
+
         Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
-        foreach(Renderer renderer in renderers)
+        foreach (Renderer renderer in renderers)
         {
             Material[] materials = renderer.materials;
             for (int i = 0; i < materials.Length; i++)
@@ -60,9 +67,35 @@ public class PreviewSystem : MonoBehaviour
 
     public void UpdatePosition(Vector3 position, bool validity)
     {
+        bool isOverlapping = IsOverlappingWithOtherObjects(position);
+
+        validity = validity && !isOverlapping;
         MovePreview(position);
         MoveCursor(position);
         ApplyFeedback(validity);
+    }
+
+    public bool IsOverlappingWithOtherObjects(Vector3 position)
+    {
+        Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
+
+        Bounds previewBounds = new Bounds(position, Vector3.zero);
+        foreach (Renderer renderer in renderers)
+        {
+            previewBounds.Encapsulate(renderer.bounds);
+        }
+
+        Collider[] hitColliders = Physics.OverlapBox(previewBounds.center, previewBounds.extents / 2);
+
+        foreach (Collider hitCollider in hitColliders)
+        {
+            if (hitCollider.gameObject != previewObject)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void ApplyFeedback(bool validity)
