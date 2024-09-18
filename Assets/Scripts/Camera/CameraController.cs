@@ -10,14 +10,11 @@ public class CameraController : MonoBehaviour
     public float scrollSpeed = 28f;
     public float minY = 20f;
     public float maxY = 120f;
-    //public Transform screenCenter;
 
-    void Update()
+    private void LateUpdate()
     {
-        //screenCenter.transform.position = new Vector2(Screen.height / 2, Screen.width / 2);
-
         Vector3 pos = transform.position;
-        
+
         if (Input.GetKey("w") || Input.GetKey("up") || Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
             pos.z += panSpeed * Time.deltaTime;
@@ -43,5 +40,5 @@ public class CameraController : MonoBehaviour
         pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
 
         transform.position = pos;
-    }
+    }    
 }
