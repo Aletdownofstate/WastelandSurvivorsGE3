@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.EventSystems;
 
 public class WorkerNavmesh : MonoBehaviour
 {
@@ -22,12 +19,8 @@ public class WorkerNavmesh : MonoBehaviour
         isMoving = true;
     }
 
-    private void Update()
+    public bool HasReachedDestination()
     {
-        if (isMoving && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance && !navMeshAgent.pathPending)
-        {
-            isMoving = false;
-            UnitSelectionManager.Instance.OnUnitReachedDestination(this);
-        }
+        return isMoving && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance && !navMeshAgent.pathPending;
     }
 }

@@ -8,6 +8,9 @@ TagManager:
   - UnitIndicator
   - Ground
   - GroundMarker
+  - DropOffPoint
+  - UnitSelectionManager
+  - ResourceManager
   layers:
   - Default
   - TransparentFX
@@ -17,9 +20,9 @@ TagManager:
   - UI
   - Clickable
   - Ground
-  - ingame UI
-  - 
-  - 
+  - Environment
+  - Wood
+  - Stone
   - 
   - 
   - 

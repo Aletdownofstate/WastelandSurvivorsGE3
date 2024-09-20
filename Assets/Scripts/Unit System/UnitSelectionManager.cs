@@ -13,10 +13,12 @@ public class UnitSelectionManager : MonoBehaviour
 
     public LayerMask clickable;
     public LayerMask groundLayerCast;
+    public LayerMask woodLayer;
     public GameObject groundMarker;
+    [HideInInspector] public GameObject currentGroundMarker;
+    public Transform dropOffPoint;
 
     private Camera cam;
-    private GameObject currentGroundMarker;
     private int unitsMoving;
 
     [SerializeField] private float unitSpreadRadius = 2.0f;
@@ -40,6 +42,7 @@ public class UnitSelectionManager : MonoBehaviour
         foreach (GameObject unit in allUnitsList)
         {
             Transform spriteChild = unit.transform.GetChild(1);
+
             if (spriteChild != null)
             {
                 spriteChild.gameObject.SetActive(false);
@@ -88,6 +91,8 @@ public class UnitSelectionManager : MonoBehaviour
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
+            // Move to a position
+
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayerCast))
             {
                 Vector3 primaryDestination = hit.point;
@@ -97,16 +102,44 @@ public class UnitSelectionManager : MonoBehaviour
                     Destroy(currentGroundMarker);
                 }
 
-                currentGroundMarker = Instantiate(groundMarker, primaryDestination, Quaternion.identity);
+                foreach (var unit in unitsSelected)
+                {
+                    WorkerTaskManager taskManager = unit.GetComponent<WorkerTaskManager>();
 
+                    if (taskManager.currentState != WorkerTaskManager.WorkerState.Idle)
+                    {
+                        taskManager.InterruptCurrentTask();
+                    }
+
+                }
+
+                currentGroundMarker = Instantiate(groundMarker, primaryDestination, Quaternion.identity);
                 unitsMoving = unitsSelected.Count;
 
                 DistributeUnitsToDestination(primaryDestination);
             }
+
+            // Start gathering wood
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, woodLayer))
+            {
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Wood"))
+                {
+                    foreach (var unit in unitsSelected)
+                    {
+                        WorkerTaskManager taskManager = unit.GetComponent<WorkerTaskManager>();
+
+                        if (taskManager != null)
+                        {
+                            taskManager.StartGathering(hit.transform, dropOffPoint);
+                        }
+                    }
+                }
+            }
         }
     }
 
-    private void DistributeUnitsToDestination(Vector3 primaryDestination)
+    public void DistributeUnitsToDestination(Vector3 primaryDestination)
     {
         int unitCount = unitsSelected.Count;
 
