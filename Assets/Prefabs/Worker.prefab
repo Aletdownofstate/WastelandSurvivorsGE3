@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1075022467336844391}
   - component: {fileID: 7500153995666947802}
   - component: {fileID: 554419112971150243}
+  - component: {fileID: 8358036369838733121}
   - component: {fileID: 3041459363920500255}
   m_Layer: 6
   m_Name: Worker
@@ -70,6 +71,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d01a7393dde7a40bb082ce3e39ac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8358036369838733121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2853462821105036502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9007f484fdc46d74ea95936aa172fcd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  gatherDuration: 10
+  maxCarryAmount: 50
 --- !u!114 &3041459363920500255
 MonoBehaviour:
   m_ObjectHideFlags: 0
