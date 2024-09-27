@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
@@ -8,18 +9,23 @@ public class WorkerTaskManager : MonoBehaviour
     private Transform resourceTarget;
     private Transform dropOffPoint;
 
+    [SerializeField] private AudioSource woodSound, metalSound;
+
     public enum WorkerState { Idle, MovingToResource, Gathering, ReturningToDropoff }
     public WorkerState currentState;
 
-    public float gatherDuration = 10f;
+    public float gatherDuration = 10.0f;
     public int maxCarryAmount = 50;
     private int currentResources = 0;
+
+    private string resourceType;
 
     [HideInInspector] public bool isInterrupted = false;
 
     private void Awake()
     {
         workerNavmesh = GetComponent<WorkerNavmesh>();
+
         unitSelectionManager = GameObject.FindGameObjectWithTag("UnitSelectionManager").GetComponent<UnitSelectionManager>();
         currentState = WorkerState.Idle;        
     }
@@ -31,10 +37,24 @@ public class WorkerTaskManager : MonoBehaviour
             return;
         }
 
+        switch (MoraleManager.Instance.currentState)
+        {
+            case MoraleManager.MoraleState.High:
+                gatherDuration = 8.0f;
+                break;
+            case MoraleManager.MoraleState.Neutral:
+                gatherDuration = 10.0f;
+                break;
+            case MoraleManager.MoraleState.Low:
+                gatherDuration = 12.0f;
+                break;
+        }
+
         switch (currentState)
         {
             case WorkerState.MovingToResource:
-                workerNavmesh.MoveToDestination(resourceTarget.position);
+                Vector3 closestPoint = GetClosestPointOnResource(resourceTarget);
+                workerNavmesh.MoveToDestination(closestPoint);
                 if (workerNavmesh.HasReachedDestination())
                 {
                     Destroy(unitSelectionManager.currentGroundMarker);
@@ -55,25 +75,62 @@ public class WorkerTaskManager : MonoBehaviour
         }
     }
 
-    public void StartGathering(Transform resource, Transform dropOff)
+    public void StartGathering(Transform resourceTransform, Transform dropOff, string resource)
     {
-        resourceTarget = resource;
-        dropOffPoint = dropOff;              
+        GameObject[] dropOffPoints = GameObject.FindGameObjectsWithTag("DropOffPoint");
+        GameObject closestDropOff = null;
+        float minDistance = Mathf.Infinity;
 
+        foreach (GameObject dropPoint in dropOffPoints)
+        {
+            float distance = Vector3.Distance(resourceTransform.transform.position, dropPoint.transform.position);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestDropOff = dropPoint;
+            }
+        }
+
+        resourceTarget = resourceTransform;
+        dropOffPoint = closestDropOff.transform;
+        resourceType = resource;
         currentState = WorkerState.MovingToResource;
     }
 
     private IEnumerator GatherResources()
     {
-        currentState = WorkerState.Gathering;        
+        currentState = WorkerState.Gathering;
+
+        AudioSource gatheringSound = null;        
+
+        switch (resourceTarget.tag)
+        {
+            case "Wood":
+                gatheringSound = woodSound;
+                break;
+
+            case "Metal":
+                gatheringSound = metalSound;
+                gatheringSound.volume = 0.4f;
+                break;
+        }        
+
+        if (gatheringSound != null)
+        {
+            StartCoroutine(GatheringSoundDelay(gatheringSound));
+        }
+
         yield return new WaitForSeconds(gatherDuration);
+        gatheringSound.Stop();
+
         currentResources = maxCarryAmount;
         currentState = WorkerState.ReturningToDropoff;
     }
 
     private void DepositResources()
     {
-        ResourceManager.Instance.AddResource("Wood", currentResources);
+        ResourceManager.Instance.AddResource(resourceType, currentResources);
         currentResources = 0;
         currentState = WorkerState.MovingToResource;
     }
@@ -84,5 +141,35 @@ public class WorkerTaskManager : MonoBehaviour
         StopAllCoroutines();
         currentState = WorkerState.Idle;
         isInterrupted = false;
+    }
+
+    private IEnumerator GatheringSoundDelay(AudioSource gatheringSound)
+    {
+        float delay = Random.Range(0.75f, 1.5f);
+        float pitch = Random.Range(0.95f, 1.05f);
+
+        gatheringSound.pitch = pitch;
+        gatheringSound.Play();
+
+        yield return new WaitForSeconds(delay);
+
+        if (currentState == WorkerState.Gathering)
+        {
+            StartCoroutine(GatheringSoundDelay(gatheringSound));
+        }
+    }
+
+    private Vector3 GetClosestPointOnResource(Transform targetTransform)
+    {
+        Collider targetCollider = targetTransform.GetComponent<Collider>();
+
+        if (targetCollider != null)
+        {
+            return targetCollider.ClosestPoint(transform.position);
+        }
+        else
+        {
+            return targetTransform.position;
+        }
     }
 }

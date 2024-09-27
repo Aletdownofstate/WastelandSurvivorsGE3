@@ -11,6 +11,8 @@ TagManager:
   - DropOffPoint
   - UnitSelectionManager
   - ResourceManager
+  - Wood
+  - Metal
   layers:
   - Default
   - TransparentFX
@@ -21,11 +23,11 @@ TagManager:
   - Clickable
   - Ground
   - Environment
-  - Wood
-  - Stone
-  - 
-  - 
-  - 
+  - WoodResource
+  - StoneResource
+  - MetalResource
+  - FoodResource
+  - WaterResource
   - 
   - 
   - 

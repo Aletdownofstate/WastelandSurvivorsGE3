@@ -158,27 +158,12 @@ public class PlacementSystem : MonoBehaviour
             return;
         }
 
-        if (ResourceManager.Instance.GetResourceAmount("Wood") < selectedObjectData.WoodRequired)
+        if (ResourceManager.Instance.GetResourceAmount("Wood") < selectedObjectData.WoodRequired || 
+            ResourceManager.Instance.GetResourceAmount("Metal") < selectedObjectData.MetalRequired || 
+            ResourceManager.Instance.GetResourceAmount("Food") < selectedObjectData.FoodRequired || 
+            ResourceManager.Instance.GetResourceAmount("Water") < selectedObjectData.WaterRequired)
         {
-            Debug.Log("Not enough wood to proceed");
-            StopPlacement();
-            return;
-        }
-        if (ResourceManager.Instance.GetResourceAmount("Metal") < selectedObjectData.MetalRequired)
-        {
-            Debug.Log("Not enough metal to proceed");
-            StopPlacement();
-            return;
-        }
-        if (ResourceManager.Instance.GetResourceAmount("Food") < selectedObjectData.FoodRequired)
-        {
-            Debug.Log("Not enough food to proceed");
-            StopPlacement();
-            return;
-        }
-        if (ResourceManager.Instance.GetResourceAmount("Water") < selectedObjectData.WaterRequired)
-        {
-            Debug.Log("Not enough water to proceed");
+            Debug.Log("Not enough resources to proceed");
             StopPlacement();
             return;
         }
@@ -197,6 +182,16 @@ public class PlacementSystem : MonoBehaviour
             {
                 obstacle.enabled = true;
             }
+
+            // Add building specific stuff here
+
+            TentObject tentObject = newObject.GetComponent<TentObject>();
+            if (tentObject != null)
+            {
+                tentObject.OnPlace();
+            }
+
+            //
 
             placedGameObjects.Add(newObject);
             GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ? floorData : furnitureData;
