@@ -3,13 +3,15 @@ using TMPro;
 
 public class ResourcesUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI woodText, waterText, foodText, metalText, populationText, moraleText;
+    [SerializeField] private TextMeshProUGUI woodText, waterText, foodText, metalText, populationText, moraleText, temperatureText;
 
     void Update()
     {
         populationText.text = ($"Population: {PopulationManager.Instance.population}/{PopulationManager.Instance.populationCurrentCap}");
 
         moraleText.text = ($"Morale: {MoraleManager.Instance.currentState}");
+
+        temperatureText.text = ($"Temp: {ClimateManager.Instance.temp}C");
 
         woodText.text = ($"Wood: {ResourceManager.Instance.GetResourceAmount("Wood")}");
         waterText.text = ($"Water: {ResourceManager.Instance.GetResourceAmount("Water")}");

@@ -14,11 +14,13 @@ public class WorkerTaskManager : MonoBehaviour
     public enum WorkerState { Idle, MovingToResource, Gathering, ReturningToDropoff }
     public WorkerState currentState;
 
+    [SerializeField] private PersonalityManager.PersonalityType personalityType;
+    private float gatheringBonus;
+
     public float gatherDuration = 10.0f;
     public int maxCarryAmount = 50;
     private int currentResources = 0;
-
-    private string resourceType;
+    private string resourceType;    
 
     [HideInInspector] public bool isInterrupted = false;
 
@@ -28,6 +30,33 @@ public class WorkerTaskManager : MonoBehaviour
 
         unitSelectionManager = GameObject.FindGameObjectWithTag("UnitSelectionManager").GetComponent<UnitSelectionManager>();
         currentState = WorkerState.Idle;        
+    }
+
+    private void Start()
+    {
+        personalityType = PersonalityManager.Instance.ChoosePersonality();        
+
+        switch (personalityType)
+        {
+            case PersonalityManager.PersonalityType.HardWorking:
+                gatheringBonus = -2.0f;
+                break;
+            case PersonalityManager.PersonalityType.Lazy:
+                gatheringBonus = 2.0f;
+                break;
+            case PersonalityManager.PersonalityType.Optimist:
+                MoraleManager.Instance.IncreaseMorale();
+                break;
+            case PersonalityManager.PersonalityType.Pessmist:
+                MoraleManager.Instance.DecreaseMorale();
+                break;
+            case PersonalityManager.PersonalityType.Strong:
+                maxCarryAmount += 10;
+                break;
+            case PersonalityManager.PersonalityType.Weak:
+                maxCarryAmount -= 10;
+                break;
+        }
     }
 
     private void Update()
@@ -40,15 +69,15 @@ public class WorkerTaskManager : MonoBehaviour
         switch (MoraleManager.Instance.currentState)
         {
             case MoraleManager.MoraleState.High:
-                gatherDuration = 8.0f;
+                gatherDuration = 8.0f + gatheringBonus;
                 break;
             case MoraleManager.MoraleState.Neutral:
-                gatherDuration = 10.0f;
+                gatherDuration = 10.0f + gatheringBonus;
                 break;
             case MoraleManager.MoraleState.Low:
-                gatherDuration = 12.0f;
+                gatherDuration = 12.0f + gatheringBonus;
                 break;
-        }
+        }        
 
         switch (currentState)
         {

@@ -8,13 +8,14 @@ public class MoraleManager : MonoBehaviour
 
     public enum MoraleState { Low, Neutral, High };
     public MoraleState currentState;
+    private MoraleState prevState;
 
     private int minMorale = 0;
-    private int maxMorale = 10;
-    private int morale;
+    public int maxMorale = 10;
+    public int morale;
 
     private bool isCheckingMorale = false;
-    private bool isFirstCheck = true;
+    private bool isFirstCheck = true;    
 
     private int previousFood;
     private int previousWater;
@@ -41,6 +42,8 @@ public class MoraleManager : MonoBehaviour
         previousFood = ResourceManager.Instance.GetResourceAmount("Food");
         previousWater = ResourceManager.Instance.GetResourceAmount("Water");
         previousPopulation = PopulationManager.Instance.population;
+
+        prevState = MoraleState.Neutral;
     }
 
     void Update()
@@ -64,16 +67,22 @@ public class MoraleManager : MonoBehaviour
         {
             StartCoroutine(MoraleCheck());
         }
+
+        if (currentState != prevState)
+        {
+            Debug.Log($"Morale: {currentState}");
+            prevState = currentState;
+        }
     }
 
     public void IncreaseMorale()
     {
-        morale++;
+        morale++;        
     }
 
     public void DecreaseMorale()
     {
-        morale--;
+        morale--;        
     }
 
     private IEnumerator MoraleCheck()
@@ -139,25 +148,25 @@ public class MoraleManager : MonoBehaviour
         if (decreaseMoraleForFood)
         {
             DecreaseMorale();
-            Debug.Log(morale);
+            Debug.Log($"Morale: {morale}/{maxMorale}");
         }
         if (decreaseMoraleForWater)
         {
             DecreaseMorale();
-            Debug.Log(morale);
+            Debug.Log($"Morale: {morale}/{maxMorale}");
         }
         if (increaseMoraleForFood)
         {
             IncreaseMorale();
-            Debug.Log(morale);
+            Debug.Log($"Morale: {morale}/{maxMorale}");
         }
         if (increaseMoraleForWater)
         {
             IncreaseMorale();
-            Debug.Log(morale);
+            Debug.Log($"Morale: {morale}/{maxMorale}");
         }
 
         yield return new WaitForSeconds(1.0f);
-        isCheckingMorale = false;
+        isCheckingMorale = false;        
     }
 }
