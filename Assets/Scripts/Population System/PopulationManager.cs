@@ -23,6 +23,8 @@ public class PopulationManager : MonoBehaviour
         {
             Instance = this;
         }
+        DontDestroyOnLoad(this);
+
         InitialiseCap();
         CalculatePopulation();
     }

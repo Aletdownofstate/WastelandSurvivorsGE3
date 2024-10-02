@@ -13,6 +13,7 @@ TagManager:
   - ResourceManager
   - Wood
   - Metal
+  - Food
   layers:
   - Default
   - TransparentFX

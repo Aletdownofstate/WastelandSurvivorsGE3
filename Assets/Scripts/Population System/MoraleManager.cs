@@ -21,6 +21,11 @@ public class MoraleManager : MonoBehaviour
     private int previousWater;
     private int previousPopulation;
 
+    private bool moraleIncreasedForFood = false;
+    private bool moraleDecreasedForFood = false;
+    private bool moraleIncreasedForWater = false;
+    private bool moraleDecreasedForWater = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -104,15 +109,19 @@ public class MoraleManager : MonoBehaviour
 
             Debug.Log("Food per Person: " + foodPerPerson);
 
-            if (foodPerPerson < 50.0f)
+            if (foodPerPerson < 50.0f && !moraleDecreasedForFood)
             {
                 Debug.Log("Food per person is less than 50. Decreasing morale.");
                 decreaseMoraleForFood = true;
+                moraleDecreasedForFood = true;
+                moraleIncreasedForFood = false;
             }
-            else
+            else if (foodPerPerson >= 50.0f && !moraleIncreasedForFood)
             {
                 Debug.Log("Food per person is 50 or more. Increasing morale.");
-                IncreaseMorale();
+                increaseMoraleForFood = true;
+                moraleIncreasedForFood = true;
+                moraleDecreasedForFood = false;
             }
 
             previousFood = currentFood;
@@ -124,15 +133,19 @@ public class MoraleManager : MonoBehaviour
 
             Debug.Log("Water per Person: " + waterPerPerson);
 
-            if (waterPerPerson < 50.0f)
+            if (waterPerPerson < 50.0f && !moraleDecreasedForWater)
             {
                 Debug.Log("Water per person is less than 50. Decreasing morale.");
                 decreaseMoraleForWater = true;
+                moraleDecreasedForWater = true;
+                moraleIncreasedForWater = false;
             }
-            else
+            else if (waterPerPerson >= 50.0f && !moraleIncreasedForWater)
             {
                 Debug.Log("Water per person is 50 or more. Increasing morale.");
-                IncreaseMorale();
+                increaseMoraleForWater = true;
+                moraleIncreasedForWater = true;
+                moraleDecreasedForWater = false;
             }
 
             previousWater = currentWater;
@@ -167,6 +180,6 @@ public class MoraleManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1.0f);
-        isCheckingMorale = false;        
+        isCheckingMorale = false;
     }
 }
