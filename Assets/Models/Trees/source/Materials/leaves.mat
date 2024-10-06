@@ -111,7 +111,7 @@ Material:
     - _DstBlendAlpha: 10
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.158
+    - _Glossiness: 0.04
     - _GlossyReflections: 1
     - _HueVariationKwToggle: 1
     - _Metallic: 0

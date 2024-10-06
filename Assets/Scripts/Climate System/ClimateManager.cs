@@ -7,7 +7,7 @@ public class ClimateManager : MonoBehaviour
     public static ClimateManager Instance { get; private set; }
 
     [SerializeField] private ParticleSystem rainPs;
-    [SerializeField] private AudioSource rainSound;
+    [SerializeField] private AudioSource rainSound, thunderSound, thunderSoundAlt;
     [SerializeField] private Light sunLight;
 
     public int temp;
@@ -17,9 +17,11 @@ public class ClimateManager : MonoBehaviour
     private int prevTemp;
 
     private bool isRaining = false;
+    private bool canThunder = true;
     private bool isAudioPlaying = false;
     private bool isRainFading = false;
     private bool isLightFading = false;
+
 
     private void Awake()
     {
@@ -54,29 +56,34 @@ public class ClimateManager : MonoBehaviour
         var main = rainPs.main;
         temp = Mathf.Clamp(temp, minTemp, maxTemp);
 
-        if (temp < 10)
+        if (temp < 10 && !isRaining)
         {
             main.startLifetime = 1;
             isRaining = true;
-            Debug.Log("It's started raining");
+            Debug.Log("It has started raining");
         }
-        else
+        else if (temp > 10 && isRaining)
         {
             main.startLifetime = 0;
             isRaining = false;
-            Debug.Log("The Rain has stopped");
+            Debug.Log("It has stopped raining");
         }
 
-        if (isRaining && !isAudioPlaying && !isRainFading)
+        if (isRaining && !isAudioPlaying && !isRainFading && !isLightFading)
         {
             StartCoroutine(RainStartFade());
             StartCoroutine(LightStartFade());
         }
 
-        if (!isRaining && isAudioPlaying && !isRainFading)
+        if (!isRaining && isAudioPlaying && !isRainFading && !isLightFading)
         {
             StartCoroutine(RainEndFade());
             StartCoroutine(LightEndFade());
+        }
+
+        if (isRaining && canThunder)
+        {
+            PlayThunder();
         }
     }
 
@@ -165,7 +172,7 @@ public class ClimateManager : MonoBehaviour
             sunLight.intensity = Mathf.Lerp(1.0f, 0.3f, t);
             yield return null;
         }
-        sunLight.intensity = 0.4f;
+        sunLight.intensity = 0.3f;
         isLightFading = false;
     }
 
@@ -182,5 +189,41 @@ public class ClimateManager : MonoBehaviour
         }
         sunLight.intensity = 1.0f;
         isLightFading = false;
+    }
+
+    private void PlayThunder()
+    {
+        AudioSource randomThunderSound = null;
+
+        int thunderChance = Random.Range(0, 99);
+
+        if (thunderChance >= 75)
+        {
+            canThunder = false;
+            int i = Random.Range(0, 2);
+
+            switch (i)
+            {
+                case (0):
+                    randomThunderSound = thunderSound;
+                    break;
+                case (1):
+                    randomThunderSound = thunderSoundAlt;
+                    break;
+            }
+            randomThunderSound.Play();
+            StartCoroutine(ThunderDelay());
+        }
+        else
+        {
+            canThunder = false;
+            StartCoroutine(ThunderDelay());
+        }
+    }
+
+    private IEnumerator ThunderDelay()
+    {
+        yield return new WaitForSeconds(15.0f);
+        canThunder = true;
     }
 }
