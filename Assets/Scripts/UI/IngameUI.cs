@@ -14,12 +14,16 @@ public class IngameUI : MonoBehaviour
     public GameObject miniMapUI;
     public GameObject mainMapUI;
 
-    [Header("Buttons")]
+    [Header("Build Menu UI")]
+    public GameObject buildMenuUI;
+    public Button closeBuildUI;
+
+    [Header("Main Menu Buttons")]
     public Button exitBtn;
     public Button resumeBtn;
     public Button optionBtn;
 
-    private bool isMapOpen;
+    private bool isMapOpen, isBuildOpen;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,9 @@ public class IngameUI : MonoBehaviour
         mainMapUI.SetActive(false);
         isMapOpen = false;
 
+        buildMenuUI.SetActive(false);
+        isBuildOpen = false;
+
     }
 
     // Update is called once per frame
@@ -38,6 +45,11 @@ public class IngameUI : MonoBehaviour
     {
         resumeBtn.GetComponent<Button>().onClick.AddListener(delegate { SetGamePause(false); });
         //exitBtn.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene(0); });
+        
+        closeBuildUI.GetComponent<Button>().onClick.AddListener (delegate {
+            buildMenuUI.SetActive(false);
+            isBuildOpen = false;
+        });
 
         if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
         {
@@ -59,6 +71,17 @@ public class IngameUI : MonoBehaviour
             miniMapUI.SetActive(true);
             mainMapUI.SetActive(false);
             isMapOpen = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.I) && isBuildOpen == false)
+        {
+            buildMenuUI.SetActive(true);
+            isBuildOpen= true;
+        }
+        else if (Input.GetKeyDown(KeyCode.I) && isBuildOpen == true)
+        {
+            buildMenuUI.SetActive(false);
+            isBuildOpen = false;
         }
     }
 
