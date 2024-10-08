@@ -25,10 +25,10 @@ public class ResourceManager : MonoBehaviour
 
     private void InitialiseResources()
     {
-        resources["Food"] = 0;
-        resources["Wood"] = 0;
-        resources["Water"] = 0;
-        resources["Metal"] = 0;
+        resources["Food"] = 100;
+        resources["Wood"] = 100;
+        resources["Water"] = 100;
+        resources["Metal"] = 100;
     }
 
     public void AddResource(string resourceType, int amount)

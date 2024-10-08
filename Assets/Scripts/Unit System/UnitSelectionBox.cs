@@ -22,7 +22,6 @@ public class UnitSelectionBox : MonoBehaviour
         myCam = Camera.main;
         startPosition = Vector2.zero;
         endPosition = Vector2.zero;
-        //DrawVisual();
         ClearSelectionBoxVisual();
     }
 

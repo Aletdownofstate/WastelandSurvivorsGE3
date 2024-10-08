@@ -12,6 +12,11 @@ public class WorkerNavmesh : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
+    private void Start()
+    {
+        navMeshAgent.avoidancePriority = Random.Range(0, 100);
+    }
+
     public void MoveToDestination(Vector3 dest)
     {
         destination = dest;

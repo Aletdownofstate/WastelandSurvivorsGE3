@@ -11,11 +11,10 @@ public class UnitSelectionManager : MonoBehaviour
     public List<GameObject> allUnitsList = new List<GameObject>();
     public List<GameObject> unitsSelected = new List<GameObject>();
 
-    public LayerMask clickable;
-    public LayerMask groundLayerCast;
-    public LayerMask woodLayer;
-    public GameObject groundMarker;
     [HideInInspector] public GameObject currentGroundMarker;
+    
+    public LayerMask clickable, groundLayerCast, woodLayer, metalLayer, foodLayer, waterLayer;
+    public GameObject groundMarker;
     public Transform dropOffPoint;
 
     private Camera cam;
@@ -110,7 +109,6 @@ public class UnitSelectionManager : MonoBehaviour
                     {
                         taskManager.InterruptCurrentTask();
                     }
-
                 }
 
                 currentGroundMarker = Instantiate(groundMarker, primaryDestination, Quaternion.identity);
@@ -119,20 +117,36 @@ public class UnitSelectionManager : MonoBehaviour
                 DistributeUnitsToDestination(primaryDestination);
             }
 
-            // Start gathering wood
+            // Start gathering
+
+            string resourceType = null;
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, woodLayer))
             {
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Wood"))
-                {
-                    foreach (var unit in unitsSelected)
-                    {
-                        WorkerTaskManager taskManager = unit.GetComponent<WorkerTaskManager>();
+                resourceType = "Wood";
+            }
+            else if (Physics.Raycast(ray, out hit, Mathf.Infinity, metalLayer))
+            {
+                resourceType = "Metal";
+            }
+            else if (Physics.Raycast(ray, out hit, Mathf.Infinity, foodLayer))
+            {
+                resourceType = "Food";
+            }
+            else if (Physics.Raycast(ray, out hit, Mathf.Infinity, waterLayer))
+            {
+                resourceType = "Water";
+            }
 
-                        if (taskManager != null)
-                        {
-                            taskManager.StartGathering(hit.transform, dropOffPoint);
-                        }
+            if (resourceType != null)
+            {
+                foreach (var unit in unitsSelected)
+                {
+                    WorkerTaskManager taskManager = unit.GetComponent<WorkerTaskManager>();
+
+                    if (taskManager != null)
+                    {
+                        taskManager.StartGathering(hit.transform, dropOffPoint, resourceType);
                     }
                 }
             }
