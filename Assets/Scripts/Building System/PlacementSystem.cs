@@ -20,9 +20,15 @@ public class PlacementSystem : MonoBehaviour
 
     private Vector3Int lastDetectedPosition = Vector3Int.zero;
 
-
     private void Start()
     {
+        preview = FindAnyObjectByType<PreviewSystem>();
+
+        if (preview == null)
+        {
+            Debug.LogError("PreviewSystem not found");
+        }
+
         StopPlacement();
         floorData = new();
         furnitureData = new();
@@ -44,6 +50,16 @@ public class PlacementSystem : MonoBehaviour
 
             gridVisualisation.transform.position = grid.WorldToCell(mousePosition);
 
+            if (preview == null)
+            {
+                return;
+            }
+
+            if (!preview.gameObject.activeInHierarchy)
+            {
+                return;
+            }
+
             preview.UpdatePosition(grid.CellToWorld(gridPosition), placementValidity);
             lastDetectedPosition = gridPosition;
         }
@@ -60,6 +76,60 @@ public class PlacementSystem : MonoBehaviour
             return;
         }
 
+        var selectedObjectData = database.objectsData[selectedObjectIndex];
+
+        bool missingResources = false;
+        bool missingWood = false;
+        bool missingMetal = false;
+        bool missingFood = false;
+        bool missingWater = false;
+
+        if (ResourceManager.Instance.GetResourceAmount("Wood") < selectedObjectData.WoodRequired)
+        {
+            missingWood = true;
+            missingResources = true;
+        }
+        if (ResourceManager.Instance.GetResourceAmount("Metal") < selectedObjectData.MetalRequired)
+        {
+            missingMetal = true;
+            missingResources = true;
+        }
+        if (ResourceManager.Instance.GetResourceAmount("Food") < selectedObjectData.FoodRequired)
+        {
+            missingFood = true;
+            missingResources = true;
+        }
+        if (ResourceManager.Instance.GetResourceAmount("Water") < selectedObjectData.WaterRequired)
+        {
+            missingWater = true;
+            missingResources = true;
+        }
+
+        if (missingResources)
+        {
+            Debug.Log("Not enough resources to build");
+
+            if (missingWood)
+            {
+                Debug.Log("Not enough wood to proceed");
+            }
+            if (missingMetal)
+            {
+                Debug.Log("Not enough metal to proceed");
+            }
+            if (missingFood)
+            {
+                Debug.Log("Not enough food to proceed");
+            }
+            if (missingWater)
+            {
+                Debug.Log("Not enough water to proceed");
+            }
+
+            missingResources = false;
+            return;
+        }
+
         gridVisualisation.SetActive(true);
         preview.StartShowingPreview(database.objectsData[selectedObjectIndex].Prefab, database.objectsData[selectedObjectIndex].Size);
         inputManager.onClicked += PlaceStructure;
@@ -70,6 +140,8 @@ public class PlacementSystem : MonoBehaviour
 
     private void PlaceStructure()
     {
+        var selectedObjectData = database.objectsData[selectedObjectIndex];
+
         if (inputManager.IsPointedOverUI())
         {
             return;
@@ -82,22 +154,51 @@ public class PlacementSystem : MonoBehaviour
 
         if (!placementValidity || preview.IsOverlappingWithOtherObjects(grid.CellToWorld(gridPosition)))
         {
+            StopPlacement();
             return;
         }
 
-        GameObject newObject = Instantiate(database.objectsData[selectedObjectIndex].Prefab);
-        newObject.transform.position = grid.CellToWorld(gridPosition);
-
-        NavMeshObstacle[] obstacles = newObject.GetComponentsInChildren<NavMeshObstacle>();
-        foreach (NavMeshObstacle obstacle in obstacles)
+        if (ResourceManager.Instance.GetResourceAmount("Wood") < selectedObjectData.WoodRequired || 
+            ResourceManager.Instance.GetResourceAmount("Metal") < selectedObjectData.MetalRequired || 
+            ResourceManager.Instance.GetResourceAmount("Food") < selectedObjectData.FoodRequired || 
+            ResourceManager.Instance.GetResourceAmount("Water") < selectedObjectData.WaterRequired)
         {
-            obstacle.enabled = true;
+            Debug.Log("Not enough resources to proceed");
+            StopPlacement();
+            return;
         }
+        else
+        {
+            ResourceManager.Instance.SubtractResource("Wood", selectedObjectData.WoodRequired);
+            ResourceManager.Instance.SubtractResource("Metal", selectedObjectData.MetalRequired);
+            ResourceManager.Instance.SubtractResource("Food", selectedObjectData.FoodRequired);
+            ResourceManager.Instance.SubtractResource("Water", selectedObjectData.WaterRequired);
 
-        placedGameObjects.Add(newObject);
-        GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ? floorData : furnitureData;
-        selectedData.AddObjectAt(gridPosition, database.objectsData[selectedObjectIndex].Size, database.objectsData[selectedObjectIndex].ID, placedGameObjects.Count - 1);
+            GameObject newObject = Instantiate(database.objectsData[selectedObjectIndex].Prefab);
+            newObject.transform.position = grid.CellToWorld(gridPosition);
 
+            NavMeshObstacle[] obstacles = newObject.GetComponentsInChildren<NavMeshObstacle>();
+            foreach (NavMeshObstacle obstacle in obstacles)
+            {
+                obstacle.enabled = true;
+            }
+
+            // Add building specific stuff here
+
+            TentObject tentObject = newObject.GetComponent<TentObject>();
+            if (tentObject != null)
+            {
+                tentObject.OnPlace();
+            }
+
+            //
+
+            placedGameObjects.Add(newObject);
+            GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ? floorData : furnitureData;
+            selectedData.AddObjectAt(gridPosition, database.objectsData[selectedObjectIndex].Size, database.objectsData[selectedObjectIndex].ID, placedGameObjects.Count - 1);
+            
+            StopPlacement();
+        }
         preview.UpdatePosition(grid.CellToWorld(gridPosition), false);
     }
 

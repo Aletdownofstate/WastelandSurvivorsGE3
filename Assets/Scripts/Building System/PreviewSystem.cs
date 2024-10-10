@@ -61,12 +61,21 @@ public class PreviewSystem : MonoBehaviour
 
     public void StopShowingPreview()
     {
+        if (previewObject != null)
+        {
+            Destroy(previewObject);
+            previewObject = null;
+        }
         cellIndicator.SetActive(false);
-        Destroy(previewObject);
     }
 
     public void UpdatePosition(Vector3 position, bool validity)
     {
+        if (previewObject == null)
+        {
+            return;
+        }
+
         bool isOverlapping = IsOverlappingWithOtherObjects(position);
 
         validity = validity && !isOverlapping;
@@ -77,6 +86,11 @@ public class PreviewSystem : MonoBehaviour
 
     public bool IsOverlappingWithOtherObjects(Vector3 position)
     {
+        if (previewObject == null)
+        {
+            return false;
+        }
+
         Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
 
         Bounds previewBounds = new Bounds(position, Vector3.zero);
@@ -113,6 +127,11 @@ public class PreviewSystem : MonoBehaviour
 
     private void MovePreview(Vector3 position)
     {
+        if (previewObject == null)
+        {
+            return;
+        }
+
         previewObject.transform.position = new Vector3(position.x, position.y + previewYOffset, position.z);
     }
 }
