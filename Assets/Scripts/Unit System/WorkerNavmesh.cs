@@ -5,7 +5,9 @@ public class WorkerNavmesh : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
     private Vector3 destination;
-    private bool isMoving;
+    public bool isMoving;
+
+    [SerializeField] private Animator anim;
 
     private void Awake()
     {
@@ -17,15 +19,23 @@ public class WorkerNavmesh : MonoBehaviour
         navMeshAgent.avoidancePriority = Random.Range(0, 100);
     }
 
-    public void MoveToDestination(Vector3 dest)
+    private void Update()
     {
+        if (HasReachedDestination())
+        {
+            isMoving = false;
+        }
+    }
+
+    public void MoveToDestination(Vector3 dest)
+    {        
         destination = dest;
         navMeshAgent.SetDestination(dest);
         isMoving = true;
     }
 
     public bool HasReachedDestination()
-    {
+    {        
         return isMoving && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance && !navMeshAgent.pathPending;
     }
 }

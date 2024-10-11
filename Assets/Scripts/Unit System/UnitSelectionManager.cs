@@ -52,7 +52,7 @@ public class UnitSelectionManager : MonoBehaviour
     private void Update()
     {
         HandleUnitSelection();
-        HandleRightClickMovement();
+        HandleRightClickMovement();        
     }
 
     private void HandleUnitSelection()
@@ -105,7 +105,7 @@ public class UnitSelectionManager : MonoBehaviour
                 {
                     WorkerTaskManager taskManager = unit.GetComponent<WorkerTaskManager>();
 
-                    if (taskManager.currentState != WorkerTaskManager.WorkerState.Idle)
+                    if (taskManager.currentWorkerState != WorkerTaskManager.WorkerState.Idle)
                     {
                         taskManager.InterruptCurrentTask();
                     }

@@ -22,14 +22,14 @@ MonoBehaviour:
     <FoodRequired>k__BackingField: 0
     <MetalRequired>k__BackingField: 0
     <WaterRequired>k__BackingField: 0
-  - <Name>k__BackingField: Crate
+  - <Name>k__BackingField: Warehouse
     <ID>k__BackingField: 1
-    <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 6409274924912432976, guid: b89a929d9b979fe4ca48851e2e11157a,
+    <Size>k__BackingField: {x: 18, y: 11}
+    <Prefab>k__BackingField: {fileID: 4272530229483459216, guid: 290eb52fb783c434b8429e32c69f9539,
       type: 3}
-    <WoodRequired>k__BackingField: 10
+    <WoodRequired>k__BackingField: 500
     <FoodRequired>k__BackingField: 0
-    <MetalRequired>k__BackingField: 0
+    <MetalRequired>k__BackingField: 1000
     <WaterRequired>k__BackingField: 0
   - <Name>k__BackingField: Tent
     <ID>k__BackingField: 2
