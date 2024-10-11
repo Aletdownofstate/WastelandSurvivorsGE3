@@ -13,6 +13,10 @@ public class WorkerTaskManager : MonoBehaviour
 
     [SerializeField] private AudioSource woodSound, metalSound;
     [SerializeField] private Animator anim;
+    [SerializeField] private Renderer Axe;
+    [SerializeField] private GameObject waterBottle;
+    [SerializeField] private GameObject woodBucket;
+
 
     public enum WorkerState { Idle, MovingToResource, Gathering, ReturningToDropoff }
     public WorkerState currentWorkerState;
@@ -34,12 +38,15 @@ public class WorkerTaskManager : MonoBehaviour
     [HideInInspector] public bool isInterrupted = false;
 
     private void Awake()
-    {
+    {   
         workerNavmesh = GetComponent<WorkerNavmesh>();
         navMeshAgent = GetComponent<NavMeshAgent>();
 
         unitSelectionManager = GameObject.FindGameObjectWithTag("UnitSelectionManager").GetComponent<UnitSelectionManager>();
         currentWorkerState = WorkerState.Idle;        
+        Axe.enabled = false;
+        waterBottle.SetActive(false);
+        woodBucket.SetActive(false);    
     }
 
     private void Start()
@@ -213,6 +220,7 @@ public class WorkerTaskManager : MonoBehaviour
             case "Wood":
                 gatheringSound = woodSound;
                 anim.SetBool("isChopping", true);
+                Axe.enabled = true;
                 break;
 
             case "Metal":
@@ -223,10 +231,12 @@ public class WorkerTaskManager : MonoBehaviour
 
             case "Food":
                 anim.SetBool("isPicking", true);
+                woodBucket.SetActive(true);
                 break;
 
             case "Water":
                 anim.SetBool("isPicking", true);
+                waterBottle.SetActive(true);
                 break;
         }        
 
@@ -241,6 +251,9 @@ public class WorkerTaskManager : MonoBehaviour
         {
             gatheringSound.Stop();
         }
+        Axe.enabled = false;
+        waterBottle.SetActive(false);
+        woodBucket.SetActive(false);
 
         switch (resourceTarget.tag)
         {
