@@ -3,7 +3,52 @@ guid: b2232f9973b68a345a998d226801af3f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor
+    second: {fileID: 2100000, guid: 575a17a19da07ee47a6a00c19e5d87e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof
+    second: {fileID: 2100000, guid: 56f254791c26e6e428794653cbf636a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: structure_1
+    second: {fileID: 2100000, guid: ac4bd52416694ee4e83211b1579743f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: structure_2
+    second: {fileID: 2100000, guid: feaebc1697467884294b65731b374c6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_1
+    second: {fileID: 2100000, guid: 3f3d3dc396a704f43a3abf8fdfb5f43f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_2
+    second: {fileID: 2100000, guid: 61bf4c07bd229be4ebc32bc6cd0be0a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_3
+    second: {fileID: 2100000, guid: 66197942ea738344a86a9e302c2009f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_4
+    second: {fileID: 2100000, guid: 8a783a52e9a0d704ca095464c843435a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_5
+    second: {fileID: 2100000, guid: a855d6eb8bcee644c9e75e00bc0ab8b3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,7 +3,12 @@ guid: 57b48ca904523664198ef4525d2a719e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood_fance_t1_m
+    second: {fileID: 2100000, guid: 508dfdd104f027c41a12b42861f2b5da, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

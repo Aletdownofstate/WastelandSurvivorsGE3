@@ -3,7 +3,67 @@ guid: 644c3a0128eed8444a75fe54ca50cc3d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor
+    second: {fileID: 2100000, guid: 849bfe45b2423b04ca4c927a6c14a5c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lever
+    second: {fileID: 2100000, guid: 774cb3ab46d28e843ba0f2ef0074c686, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof
+    second: {fileID: 2100000, guid: 533b37a83351c1c4c9791aab585e0b3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rope
+    second: {fileID: 2100000, guid: dbe407d4af8ffce4db91ebb7f2cee48a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stairs
+    second: {fileID: 2100000, guid: 4fef3519b5832d24b92ee995a631a106, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_1
+    second: {fileID: 2100000, guid: 9f1187b5aa2753840a56202364d6ad94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_2
+    second: {fileID: 2100000, guid: 322df77e5474a264d8920339847fe737, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_3
+    second: {fileID: 2100000, guid: 3d4e80ddef7e06f41b3725320d15268b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_4
+    second: {fileID: 2100000, guid: 825726a08f9ad324e9b7aa2f7e206155, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_5
+    second: {fileID: 2100000, guid: 92ccd222517b5704fb5a9a7040126e6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_6
+    second: {fileID: 2100000, guid: 93f245ae79f205d4d8dcfd0c8b57cf7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wind turbine
+    second: {fileID: 2100000, guid: 53faa8ae580dd0d439d29fdd0648504c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

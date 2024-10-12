@@ -11,6 +11,7 @@ TagManager:
   - DropOffPoint
   - UnitSelectionManager
   - ResourceManager
+  - Villager
   layers:
   - Default
   - TransparentFX

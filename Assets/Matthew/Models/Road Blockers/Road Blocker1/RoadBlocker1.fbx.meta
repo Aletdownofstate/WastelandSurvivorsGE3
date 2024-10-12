@@ -3,7 +3,12 @@ guid: 904fcb93c190ed740a3cc966c2455eff
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Road_sign__AO.tga
+    second: {fileID: 2100000, guid: 91515db8cfa881349ac2a26c4d85e602, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
