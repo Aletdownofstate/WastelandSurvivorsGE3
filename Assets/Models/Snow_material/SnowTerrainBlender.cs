@@ -5,15 +5,15 @@ using UnityEngine;
 public class SnowTerrainBlender : MonoBehaviour
 {
     [Header("Snow Texture Properties")]
-    [SerializeField] private Texture2D snowAlbedo; // Snow Albedo texture
-    [SerializeField] private Texture2D snowNormalMap; // Snow Normal map texture
-    [SerializeField] private Texture2D snowAmbientOcclusion; // Snow AO texture
-    [SerializeField] private Texture2D snowRoughness; // Snow Roughness texture
-    [SerializeField] private Texture2D snowMetallic; // Snow Metallic texture
+    [SerializeField] private Texture2D snowAlbedo; 
+    [SerializeField] private Texture2D snowNormalMap; 
+    [SerializeField] private Texture2D snowAmbientOcclusion; 
+    [SerializeField] private Texture2D snowRoughness; 
+    [SerializeField] private Texture2D snowMetallic; 
 
     [Header("Snow Control")]
     [Range(0f, 1f)]
-    [SerializeField] private float snowCoverage = 0f; // Control for snow coverage
+    [SerializeField] private float snowCoverage = 0f; 
 
     private Material terrainMaterial;
 
@@ -25,7 +25,7 @@ public class SnowTerrainBlender : MonoBehaviour
 
         if (terrainMaterial != null)
         {
-            ApplySnowProperties(); // Apply snow properties to the terrain material
+            ApplySnowProperties(); /
         }
         else
         {
@@ -38,7 +38,7 @@ public class SnowTerrainBlender : MonoBehaviour
         if (terrainMaterial != null)
         {
             // Update the snow coverage in the shader
-            terrainMaterial.SetFloat("_SnowCoverage", snowCoverage); // Pass snow coverage to shader
+            terrainMaterial.SetFloat("_SnowCoverage", snowCoverage); 
         }
     }
 
@@ -47,27 +47,27 @@ public class SnowTerrainBlender : MonoBehaviour
         // Set the textures for the snow material
         if (snowAlbedo != null)
         {
-            terrainMaterial.SetTexture("_SnowAlbedo", snowAlbedo); // Set snow albedo texture
+            terrainMaterial.SetTexture("_SnowAlbedo", snowAlbedo); 
         }
 
         if (snowNormalMap != null)
         {
-            terrainMaterial.SetTexture("_SnowNormalMap", snowNormalMap); // Set snow normal map texture
+            terrainMaterial.SetTexture("_SnowNormalMap", snowNormalMap); 
         }
 
         if (snowAmbientOcclusion != null)
         {
-            terrainMaterial.SetTexture("_SnowAO", snowAmbientOcclusion); // Set snow ambient occlusion texture
+            terrainMaterial.SetTexture("_SnowAO", snowAmbientOcclusion); 
         }
 
         if (snowRoughness != null)
         {
-            terrainMaterial.SetTexture("_SnowRoughness", snowRoughness); // Set snow roughness texture
+            terrainMaterial.SetTexture("_SnowRoughness", snowRoughness); 
         }
 
         if (snowMetallic != null)
         {
-            terrainMaterial.SetTexture("_SnowMetallic", snowMetallic); // Set snow metallic texture
+            terrainMaterial.SetTexture("_SnowMetallic", snowMetallic); 
         }
     }
 }
