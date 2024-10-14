@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     private CameraController cameraController;
 
-    public enum GameState { Intro, ChapterOne, ChapterTwo, ChapterThree }
+    public enum GameState { Intro, ChapterOne, ChapterTwo, ChapterThree, ChapterFour }
     public GameState currentGameState;
 
     private bool startDelay = false;
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private bool chapterOneGoalTwo;
 
     private bool chapterTwoGoalOne;
+    private int tentAmount = 0;
 
     private void Awake()
     {
@@ -56,7 +57,9 @@ public class GameManager : MonoBehaviour
 
             if (isDelayComplete && !isEventVisible)
             {
-                EventManager.Instance.InitialiseEventText($"Chapter One", $"\"We need to gather supplies and build shelter if we're going to survive out here!\"", $"Gather 500 of each resource and build two tents");
+                EventManager.Instance.InitialiseEventText($"Chapter One", 
+                    $"\"We need to gather supplies and build shelter if we're going to survive out here!\"", 
+                    $"Gather 500 of each resource and build two tents");
                 EventManager.Instance.ShowEventUI();
                 isEventVisible = true;
                 isDelayComplete = false;
@@ -87,11 +90,23 @@ public class GameManager : MonoBehaviour
 
             if (!chapterOneGoalTwo)
             {
-                if (tents.Length >= 2 && !chapterOneGoalTwo)
+                foreach (var tent in tents)
+                {
+                    TentObject tentObject = tent.GetComponent<TentObject>();
+
+                    if (tentObject.isPlaced && !tentObject.isChecked)
+                    {
+                        tentAmount++;
+                        tentObject.isChecked = true;
+                    }
+                }
+
+                if (tentAmount >= 2)
                 {
                     chapterOneGoalTwo = true;
                     Debug.Log($"{currentGameState}: Goal Two complete");
                 }
+                
             }
 
             if (chapterOneGoalOne && chapterOneGoalTwo)
@@ -119,7 +134,9 @@ public class GameManager : MonoBehaviour
 
                 if (isDelayComplete && !isEventVisible)
                 {
-                    EventManager.Instance.InitialiseEventText($"Chapter Two", $"\"All these supplies are going to need to be stored somewhere.\"", $"Build a warehouse");
+                    EventManager.Instance.InitialiseEventText($"Chapter Two", 
+                        $"\"All these supplies are going to need to be stored somewhere.\"", 
+                        $"Build a warehouse");
                     EventManager.Instance.ShowEventUI();
                     isEventVisible = true;
                     Debug.Log("Entering Chapter Two");
@@ -132,46 +149,62 @@ public class GameManager : MonoBehaviour
 
         if (currentGameState == GameState.ChapterTwo)
         {
+            GameObject[] warehouses = GameObject.FindGameObjectsWithTag("Warehouse");
+
             if (!chapterTwoGoalOne)
             {
-
+                if (warehouses.Length >= 1)
+                {
+                    chapterTwoGoalOne = true;
+                    Debug.Log($"{currentGameState}: Goal One complete");
+                }
             }
 
-            //if (chapter goals completed)
-            //{
+            if (chapterTwoGoalOne)
+            {
 
-            //    if (startDelay && !hasDelayTriggered)
-            //    {
-            //        if (isDelayComplete)
-            //        {
-            //            isDelayComplete = false;
-            //        }
-            //        if (isEventVisible)
-            //        {
-            //            isEventVisible = false;
-            //        }
-            //        startDelay = false;
-            //        hasDelayTriggered = true;
-            //    }
+                if (startDelay && !hasDelayTriggered)
+                {
+                    if (isDelayComplete)
+                    {
+                        isDelayComplete = false;
+                    }
+                    if (isEventVisible)
+                    {
+                        isEventVisible = false;
+                    }
+                    startDelay = false;
+                    hasDelayTriggered = true;
+                }
 
-            //    if (!startDelay && !isDelayComplete)
-            //    {
-            //        Debug.Log("Starting the delay coroutine.");
-            //        startDelay = true;
-            //        StartCoroutine(Delay(3.0f));
-            //    }
+                if (!startDelay && !isDelayComplete)
+                {
+                    Debug.Log("Starting the delay coroutine.");
+                    startDelay = true;
+                    StartCoroutine(Delay(3.0f));
+                }
 
-            //    if (isDelayComplete && !isEventVisible)
-            //    {
-            //        EventManager.Instance.InitialiseEventText($"Chapter Three", $"\"Do whatever\"", $"Some goal");
-            //        EventManager.Instance.ShowEventUI();
-            //        isEventVisible = true;
-            //        Debug.Log("Entering Chapter Three");
-            //        currentGameState = GameState.ChapterThree;
+                if (isDelayComplete && !isEventVisible)
+                {
+                    EventManager.Instance.InitialiseEventText($"Chapter Three", $"\"Do whatever\"", $"Some goal");
+                    EventManager.Instance.ShowEventUI();
+                    isEventVisible = true;
+                    Debug.Log("Entering Chapter Three");
+                    currentGameState = GameState.ChapterThree;
 
-            //        startDelay = false;
-            //    }
-            //}
+                    startDelay = false;
+                }
+            }
+        }
+
+        if (currentGameState == GameState.ChapterThree)
+        {
+
+        }
+
+        if (currentGameState == GameState.ChapterFour)
+        {
+
         }
     }
 

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TentObject : MonoBehaviour
 {
-    private bool isPlaced = false;
+    [HideInInspector] public bool isPlaced = false;
+    [HideInInspector] public bool isChecked = false;
 
     public void OnPlace()
     {
