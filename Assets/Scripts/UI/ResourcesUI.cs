@@ -3,7 +3,9 @@ using TMPro;
 
 public class ResourcesUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI woodText, waterText, foodText, metalText, populationText, moraleText, temperatureText, dayCountdownText;
+    [SerializeField] private TextMeshProUGUI woodText, waterText, foodText, metalText, populationText, moraleText, temperatureText, dayCountdownText, fpsText;
+    public float deltaTime;
+
 
     void Update()
     {
@@ -18,6 +20,11 @@ public class ResourcesUI : MonoBehaviour
         foodText.text = $"Food: {ResourceManager.Instance.GetResourceAmount("Food")}";
         metalText.text = $"Metal: {ResourceManager.Instance.GetResourceAmount("Metal")}";
 
-        dayCountdownText.text = $"Days Remaining Until Winter: {TimeManager.Instance.daysRemaining}";
+        dayCountdownText.text = $"Days Remaining Until Winter: {TimeManager.Instance.daysRemaining}";        
+
+        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+        float fps = 1.0f / deltaTime;
+        fpsText.text = "FPS: " + Mathf.Ceil(fps).ToString();
+
     }
 }

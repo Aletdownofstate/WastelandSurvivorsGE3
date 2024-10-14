@@ -17,6 +17,8 @@ TagManager:
   - Water
   - Tent
   - Warehouse
+  - WaterDropOffPoint
+  - WaterTower
   layers:
   - Default
   - TransparentFX

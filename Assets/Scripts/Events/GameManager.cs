@@ -14,14 +14,19 @@ public class GameManager : MonoBehaviour
     private bool startDelay = false;
     private bool isDelayComplete = true;
     private bool isEventVisible = false;
-
     private bool hasDelayTriggered = false;
+
+    private bool isChapterStarted = false;
 
     private bool chapterOneGoalOne;
     private bool chapterOneGoalTwo;
+    private int tentAmount = 0;
 
     private bool chapterTwoGoalOne;
-    private int tentAmount = 0;
+    private int warehouseAmount = 0;
+
+    private bool chapterThreeGoalOne;
+
 
     private void Awake()
     {
@@ -148,12 +153,31 @@ public class GameManager : MonoBehaviour
         }
 
         if (currentGameState == GameState.ChapterTwo)
-        {
+        {            
+            if (!isChapterStarted)
+            {
+                isDelayComplete = false;
+                isEventVisible = false;
+                hasDelayTriggered = false;
+                isChapterStarted = true;
+            }
+
             GameObject[] warehouses = GameObject.FindGameObjectsWithTag("Warehouse");
 
             if (!chapterTwoGoalOne)
             {
-                if (warehouses.Length >= 1)
+                foreach (var warehouse in warehouses)
+                {
+                    WarehouseObject warehouseObject = warehouse.GetComponent<WarehouseObject>();
+
+                    if (warehouseObject.isPlaced && !warehouseObject.isChecked)
+                    {
+                        warehouseAmount++;
+                        warehouseObject.isChecked = true;
+                    }
+                }
+
+                if (warehouseAmount >= 1)
                 {
                     chapterTwoGoalOne = true;
                     Debug.Log($"{currentGameState}: Goal One complete");
@@ -162,9 +186,10 @@ public class GameManager : MonoBehaviour
 
             if (chapterTwoGoalOne)
             {
-
                 if (startDelay && !hasDelayTriggered)
                 {
+                    Debug.Log("Resetting event flags");
+
                     if (isDelayComplete)
                     {
                         isDelayComplete = false;
@@ -175,7 +200,7 @@ public class GameManager : MonoBehaviour
                     }
                     startDelay = false;
                     hasDelayTriggered = true;
-                }
+                }                
 
                 if (!startDelay && !isDelayComplete)
                 {
@@ -199,7 +224,52 @@ public class GameManager : MonoBehaviour
 
         if (currentGameState == GameState.ChapterThree)
         {
+            if (!isChapterStarted)
+            {
+                isDelayComplete = false;
+                isEventVisible = false;
+                hasDelayTriggered = false;
+                isChapterStarted = true;
+            }
 
+
+
+            if (chapterThreeGoalOne)
+            {
+                if (startDelay && !hasDelayTriggered)
+                {
+                    Debug.Log("Resetting event flags");
+
+                    if (isDelayComplete)
+                    {
+                        isDelayComplete = false;
+                    }
+                    if (isEventVisible)
+                    {
+                        isEventVisible = false;
+                    }
+                    startDelay = false;
+                    hasDelayTriggered = true;
+                }
+
+                if (!startDelay && !isDelayComplete)
+                {
+                    Debug.Log("Starting the delay coroutine.");
+                    startDelay = true;
+                    StartCoroutine(Delay(3.0f));
+                }
+
+                if (isDelayComplete && !isEventVisible)
+                {
+                    EventManager.Instance.InitialiseEventText($"Chapter Four", $"\"Do whatever\"", $"Some goal");
+                    EventManager.Instance.ShowEventUI();
+                    isEventVisible = true;
+                    Debug.Log("Entering Chapter Three");
+                    currentGameState = GameState.ChapterThree;
+
+                    startDelay = false;
+                }
+            }
         }
 
         if (currentGameState == GameState.ChapterFour)

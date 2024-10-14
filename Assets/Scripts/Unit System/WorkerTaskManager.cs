@@ -199,7 +199,7 @@ public class WorkerTaskManager : MonoBehaviour
         resourceTarget = resourceTransform;
         dropOffPoint = closestDropOff.transform;
         resourceType = resource;
-        currentWorkerState = WorkerState.MovingToResource;        
+        currentWorkerState = WorkerState.MovingToResource;
     }
 
     private IEnumerator GatherResources()
