@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClimateManager : MonoBehaviour
@@ -7,7 +6,7 @@ public class ClimateManager : MonoBehaviour
     public static ClimateManager Instance { get; private set; }
 
     [SerializeField] private ParticleSystem rainPs;
-    [SerializeField] private AudioSource rainSound, thunderSound, thunderSoundAlt;
+    [SerializeField] private AudioSource rainSound, thunderSound, thunderAltSound, birdsSound, wolvesSound, strongWindSound;
     [SerializeField] private Light sunLight;
 
     public int temp;
@@ -17,11 +16,13 @@ public class ClimateManager : MonoBehaviour
     private int prevTemp;
 
     private bool isRaining = false;
+    private bool isFading = false;
     private bool canThunder = true;
-    private bool isAudioPlaying = false;
-    private bool isRainFading = false;
+    private bool canWolves = true;
     private bool isLightFading = false;
-
+    private bool isRainAudioPlaying = false;
+    private bool isWindAudioPlaying = false;
+    private bool areBirdsSinging = false;
 
     private void Awake()
     {
@@ -56,6 +57,8 @@ public class ClimateManager : MonoBehaviour
         var main = rainPs.main;
         temp = Mathf.Clamp(temp, minTemp, maxTemp);
 
+        // Rain
+
         if (temp < 10 && !isRaining)
         {
             main.startLifetime = 1;
@@ -69,21 +72,61 @@ public class ClimateManager : MonoBehaviour
             Debug.Log("It has stopped raining");
         }
 
-        if (isRaining && !isAudioPlaying && !isRainFading && !isLightFading)
+        if (isRaining && !isRainAudioPlaying && !isFading && !isLightFading)
         {
-            StartCoroutine(RainStartFade());
+            isRainAudioPlaying = true;
+            StartCoroutine(AudioStart(rainSound, 0.6f, 1.0f));
             StartCoroutine(LightStartFade());
+            Debug.Log($"{rainSound} is playing");
         }
-
-        if (!isRaining && isAudioPlaying && !isRainFading && !isLightFading)
+        else if (!isRaining && isRainAudioPlaying && !isFading && !isLightFading)
         {
-            StartCoroutine(RainEndFade());
+            isRainAudioPlaying = false;
+            StartCoroutine(AudioStop(rainSound, 0.0f, 1.0f));
             StartCoroutine(LightEndFade());
+            Debug.Log($"{rainSound} has stopped playing");
         }
 
-        if (isRaining && canThunder)
+        // Thunder
+
+        if (isRaining && !isFading && canThunder)
         {
             PlayThunder();
+        }
+
+        // Strong Wind
+
+        if (isRaining && !isFading && !isWindAudioPlaying)
+        {
+            isWindAudioPlaying = true;
+            StartCoroutine(AudioStart(strongWindSound, 1.0f, 1.0f));
+            Debug.Log($"{strongWindSound} is playing");
+        }
+        else if (!isRaining && !isFading && isWindAudioPlaying)
+        {
+            isWindAudioPlaying = false;
+            StartCoroutine(AudioStop(strongWindSound, 0.0f, 1.0f));
+            Debug.Log($"{strongWindSound} has stopped playing");
+        }
+
+        // Birds
+
+        if (!isRaining && temp >= 14 && !isFading && !areBirdsSinging)
+        {
+            areBirdsSinging = true;
+            StartCoroutine(AudioStart(birdsSound, 1.2f, 1.0f));
+        }
+        else if (temp < 14 && areBirdsSinging)
+        {
+            areBirdsSinging = false;
+            StartCoroutine(AudioStop(birdsSound, 0.0f, 1.0f));
+        }
+
+        // Wolves
+
+        if (isRaining && !isFading && canWolves)
+        {
+            PlayWolves();
         }
     }
 
@@ -127,38 +170,37 @@ public class ClimateManager : MonoBehaviour
         StartCoroutine(Temperature());
     }
 
-    private IEnumerator RainStartFade()
+    private IEnumerator AudioStart(AudioSource audioSource, float endVolume, float pitch)
     {
-        isRainFading = true;
-        rainSound.Play();
-        float currentTime = 0.0f;
-        while (currentTime < 3.0f)
-        {
-            currentTime += Time.deltaTime;
-            float t = Mathf.Clamp01(currentTime / 3);
-            rainSound.volume = Mathf.Lerp(0.0f, 0.6f, t);
-            yield return null;
-        }
-        rainSound.volume = 0.6f;
-        isRainFading = false;
-        isAudioPlaying = true;
+        isFading = true;
+        audioSource.Play();
+        StartCoroutine(SoundFade(audioSource, endVolume, pitch));
+        yield return new WaitForSeconds(3.0f);
+        isFading = false;
+    }    
+
+    private IEnumerator AudioStop(AudioSource audioSource, float endVolume, float pitch)
+    {
+        isFading = true;
+
+        StartCoroutine(SoundFade(rainSound, endVolume, pitch));
+        yield return new WaitForSeconds(3.0f);
+        audioSource.Stop();        
+        isFading = false;
     }
 
-    private IEnumerator RainEndFade()
+    private IEnumerator SoundFade(AudioSource audioSource, float endVolume, float pitch)
     {
-        isRainFading = true;
+        audioSource.pitch = pitch;        
         float currentTime = 0.0f;
         while (currentTime < 3.0f)
         {
             currentTime += Time.deltaTime;
             float t = Mathf.Clamp01(currentTime / 3);
-            rainSound.volume = Mathf.Lerp(0.6f, 0.0f, t);
+            audioSource.volume = Mathf.Lerp(0.0f, endVolume, t);
             yield return null;
         }
-        rainSound.Stop();
-        rainSound.volume = 0.0f;
-        isAudioPlaying = false;
-        isRainFading = false;
+        audioSource.volume = endVolume;
     }
 
     private IEnumerator LightStartFade()
@@ -208,11 +250,12 @@ public class ClimateManager : MonoBehaviour
                     randomThunderSound = thunderSound;
                     break;
                 case (1):
-                    randomThunderSound = thunderSoundAlt;
+                    randomThunderSound = thunderAltSound;
                     break;
             }
             randomThunderSound.Play();
             StartCoroutine(ThunderDelay());
+            Debug.Log($"{randomThunderSound} is playing");
         }
         else
         {
@@ -221,9 +264,37 @@ public class ClimateManager : MonoBehaviour
         }
     }
 
+    private void PlayWolves()
+    {
+        int wolvesChance = Random.Range(0, 99);
+
+        if (wolvesChance >= 75)
+        {
+            canWolves = false;
+            float pitch = Random.Range(0.8f, 1.2f);
+            wolvesSound.pitch = pitch;
+            wolvesSound.volume = 0.4f;
+            wolvesSound.Play();
+            StartCoroutine(ThunderDelay());
+            Debug.Log($"{wolvesSound} is playing");
+        }
+        else
+        {
+            canWolves = false;
+            StartCoroutine(WolvesDelay());
+        }
+
+    }
+
     private IEnumerator ThunderDelay()
     {
         yield return new WaitForSeconds(15.0f);
         canThunder = true;
+    }
+
+    private IEnumerator WolvesDelay()
+    {
+        yield return new WaitForSeconds(45.0f);
+        canWolves = true;
     }
 }
