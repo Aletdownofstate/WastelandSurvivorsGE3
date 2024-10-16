@@ -19,6 +19,7 @@ TagManager:
   - Warehouse
   - WaterDropOffPoint
   - WaterTower
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

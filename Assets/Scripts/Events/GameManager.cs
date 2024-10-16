@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [SerializeField] GameObject maleWorkerA, maleWorkerB, femaleWorker;
     private CameraController cameraController;
 
     public enum GameState { Intro, ChapterOne, ChapterTwo, ChapterThree, ChapterFour }
@@ -18,15 +19,13 @@ public class GameManager : MonoBehaviour
 
     private bool isChapterStarted = false;
 
-    private bool chapterOneGoalOne;
-    private bool chapterOneGoalTwo;
+    private bool chapterOneGoalOne, chapterOneGoalTwo;    
     private int tentAmount = 0;
 
     private bool chapterTwoGoalOne;
     private int warehouseAmount = 0;
 
     private bool chapterThreeGoalOne;
-
 
     private void Awake()
     {
@@ -46,6 +45,8 @@ public class GameManager : MonoBehaviour
     {
         currentGameState = GameState.Intro;
         Debug.Log(currentGameState);
+
+        InitialiseWorkers();
     }
 
     void Update()
@@ -285,5 +286,31 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         isDelayComplete = true;
         Debug.Log("Delay finished, isDelayComplete set to true.");
+    }
+
+    private void InitialiseWorkers()
+    {
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+
+        GameObject worker = null;
+
+        foreach (var spawnPoint in spawnPoints)
+        {
+            int i = Random.Range(0, 3);
+
+            switch (i)
+            {
+                case (0):
+                    worker = maleWorkerA;
+                    break;
+                case (1):
+                    worker = maleWorkerB;
+                    break;
+                case (2):
+                    worker = femaleWorker;
+                    break;
+            }
+            Instantiate(worker, spawnPoint.transform.position, Quaternion.identity);
+        }
     }
 }

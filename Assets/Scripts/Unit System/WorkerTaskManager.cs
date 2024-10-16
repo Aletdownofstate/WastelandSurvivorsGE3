@@ -13,6 +13,9 @@ public class WorkerTaskManager : MonoBehaviour
 
     [SerializeField] private AudioSource woodSound, metalSound;
     [SerializeField] private Animator anim;
+    [SerializeField] private Renderer axeObject;
+    [SerializeField] private GameObject bottleObject;
+    [SerializeField] private GameObject bucketObject;
 
     public enum WorkerState { Idle, MovingToResource, Gathering, ReturningToDropoff }
     public WorkerState currentWorkerState;
@@ -39,7 +42,7 @@ public class WorkerTaskManager : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
 
         unitSelectionManager = GameObject.FindGameObjectWithTag("UnitSelectionManager").GetComponent<UnitSelectionManager>();
-        currentWorkerState = WorkerState.Idle;        
+        currentWorkerState = WorkerState.Idle;
     }
 
     private void Start()
@@ -47,8 +50,6 @@ public class WorkerTaskManager : MonoBehaviour
         workerName = NameManager.Instance.GetWorkerName();
         workerSkill = SkillsManager.Instance.GetSkill();
         personalityType = PersonalityManager.Instance.ChoosePersonality();
-
-        anim.SetBool("isIdle", true);        
 
         switch (personalityType)
         {
@@ -149,7 +150,7 @@ public class WorkerTaskManager : MonoBehaviour
                 }
                 break;
 
-            case WorkerState.Idle:               
+            case WorkerState.Idle:
                 break;
         }
 
@@ -157,7 +158,6 @@ public class WorkerTaskManager : MonoBehaviour
 
         if (navMeshAgent.velocity != Vector3.zero)
         {
-            anim.SetBool("isIdle", false);
             anim.SetBool("isWalking", true);
         }
         else
@@ -165,17 +165,11 @@ public class WorkerTaskManager : MonoBehaviour
             anim.SetBool("isWalking", false);
         }
 
-        if (navMeshAgent.isStopped && currentWorkerState == WorkerState.Idle)
-        {
-            anim.SetBool("isIdle", true);            
-        }
-
         if (currentWorkerState != WorkerState.Gathering)
         {
             anim.SetBool("isPicking", false);
             anim.SetBool("isCollecting", false);
             anim.SetBool("isChopping", false);
-            anim.SetBool("isIdle", false);
         }
     }
 
@@ -213,20 +207,32 @@ public class WorkerTaskManager : MonoBehaviour
             case "Wood":
                 gatheringSound = woodSound;
                 anim.SetBool("isChopping", true);
+                axeObject.enabled = true;
+                bucketObject.SetActive(false);
+                bottleObject.SetActive(false);
                 break;
 
             case "Metal":
                 gatheringSound = metalSound;
                 gatheringSound.volume = 0.4f;
                 anim.SetBool("isCollecting", true);
+                axeObject.enabled = false;
+                bucketObject.SetActive(false);
+                bottleObject.SetActive(false);
                 break;
 
             case "Food":
                 anim.SetBool("isPicking", true);
+                axeObject.enabled = false;
+                bucketObject.SetActive(true);
+                bottleObject.SetActive(false);
                 break;
 
             case "Water":
                 anim.SetBool("isPicking", true);
+                axeObject.enabled = false;
+                bucketObject.SetActive(false);
+                bottleObject.SetActive(true);
                 break;
         }        
 
@@ -241,6 +247,10 @@ public class WorkerTaskManager : MonoBehaviour
         {
             gatheringSound.Stop();
         }
+
+        axeObject.enabled = false;
+        bottleObject.SetActive(false);
+        bucketObject.SetActive(false);
 
         switch (resourceTarget.tag)
         {
