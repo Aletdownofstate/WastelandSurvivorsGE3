@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Box Volume-PostProcessing.prefab.meta
 guid: 72cf6eea20b9e38408e72ec799d0a4ae
+========
+guid: 309caa3078b94e04499d5f391357cf3b
+>>>>>>>> main:Assets/Models/House.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
