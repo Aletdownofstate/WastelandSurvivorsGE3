@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
 
         GameObject homePoint = GameObject.Find("Home Point");
         fogWar.AddFogRevealer(new FischlWorks_FogWar.csFogWar.FogRevealer(homePoint.transform, 15, false));
-
     }
 
     void Start()
