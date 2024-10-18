@@ -8,14 +8,18 @@ TagManager:
   - UnitIndicator
   - Ground
   - GroundMarker
-  - Water
-  - Wood
-  - Metal
-  - Food
   - DropOffPoint
   - UnitSelectionManager
   - ResourceManager
+  - Wood
+  - Metal
+  - Food
+  - Water
   - Tent
+  - Warehouse
+  - WaterDropOffPoint
+  - WaterTower
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -26,11 +30,11 @@ TagManager:
   - Clickable
   - Ground
   - Environment
-  - Snow Interaction
-  - 
-  - 
-  - 
-  - 
+  - WoodResource
+  - StoneResource
+  - MetalResource
+  - FoodResource
+  - WaterResource
   - 
   - 
   - 

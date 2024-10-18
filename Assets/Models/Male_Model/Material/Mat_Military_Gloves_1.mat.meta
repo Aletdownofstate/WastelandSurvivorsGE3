@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Models/Male_Model/Material/Mat_Military_Gloves_1.mat.meta
 guid: aad7b0f1f61ca58468938f9948a7a43d
+========
+guid: 8503f0e34b86c514cab9239bcaec5341
+>>>>>>>> main:Assets/Materials/Shader Graphs_GroundMarker.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
