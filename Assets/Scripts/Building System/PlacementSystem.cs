@@ -184,11 +184,24 @@ public class PlacementSystem : MonoBehaviour
             }
 
             // Add building specific stuff here
+            // Checks to see if building is actually placed or still being previewed
 
             TentObject tentObject = newObject.GetComponent<TentObject>();
             if (tentObject != null)
             {
                 tentObject.OnPlace();
+            }
+
+            WarehouseObject warehouseObject = newObject.GetComponent<WarehouseObject>();
+            if (warehouseObject != null)
+            {
+                warehouseObject.OnPlace();
+            }
+
+            WaterTowerObject waterTowerObject = newObject.GetComponent<WaterTowerObject>();
+            if (waterTowerObject != null)
+            {
+                waterTowerObject.OnPlace();
             }
 
             //
