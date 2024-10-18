@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    private FischlWorks_FogWar.csFogWar fogWar;
+
     [SerializeField] GameObject maleWorkerA, maleWorkerB, femaleWorker;
     private CameraController cameraController;
 
@@ -37,8 +39,14 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        cameraController = Camera.main.GetComponent<CameraController>();
         DontDestroyOnLoad(this);
+
+        cameraController = Camera.main.GetComponent<CameraController>();
+        fogWar = GameObject.Find("FogWar").GetComponent<FischlWorks_FogWar.csFogWar>();
+
+        GameObject homePoint = GameObject.Find("Home Point");
+        fogWar.AddFogRevealer(new FischlWorks_FogWar.csFogWar.FogRevealer(homePoint.transform, 15, false));
+
     }
 
     void Start()
@@ -311,6 +319,13 @@ public class GameManager : MonoBehaviour
                     break;
             }
             Instantiate(worker, spawnPoint.transform.position, Quaternion.identity);
+        }
+
+        GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
+
+        foreach (var unit in units)
+        {
+            fogWar.AddFogRevealer(new FischlWorks_FogWar.csFogWar.FogRevealer(unit.transform, 7, true));
         }
     }
 }

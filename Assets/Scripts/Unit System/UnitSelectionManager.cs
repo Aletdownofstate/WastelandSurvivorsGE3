@@ -15,8 +15,8 @@ public class UnitSelectionManager : MonoBehaviour
     
     public LayerMask clickable, groundLayerCast, woodLayer, metalLayer, foodLayer, waterLayer;
     public GameObject groundMarker;
-    public Transform dropOffPoint;
 
+    private Transform dropOffPoint;
     private Camera cam;
     private int unitsMoving;
 
