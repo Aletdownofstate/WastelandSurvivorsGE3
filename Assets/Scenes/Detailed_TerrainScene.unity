@@ -15,10 +15,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.5944731, g: 0.682719, b: 0.6886792, a: 1}
   m_FogMode: 3
-  m_FogDensity: 1
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1859480002}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 508bc0f15cbfeae41a2e21487ee81f53,
+  m_LightingDataAsset: {fileID: 112000000, guid: 65292243b7341004dbb34278a2b843c3,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 077bf01356c9a744e8208fd575d68fab,
     type: 2}
@@ -267,10 +267,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -299,7 +309,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2560691
 Transform:
@@ -417,7 +427,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &5292329
 Transform:
@@ -700,6 +710,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -773,6 +788,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
@@ -851,7 +871,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &31671708
 Transform:
@@ -1021,10 +1041,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1297,6 +1327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
@@ -1579,10 +1614,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1653,10 +1698,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1782,7 +1837,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &85210890
 Transform:
@@ -1827,7 +1882,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &86653722
 Transform:
@@ -1992,6 +2047,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 21.678
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532515905942776494, guid: 624e5c23e65838048a6fb40fa47190a3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6944781579530139119, guid: 624e5c23e65838048a6fb40fa47190a3,
         type: 3}
@@ -2390,10 +2450,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2424,10 +2494,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -2568,10 +2648,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2606,7 +2696,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &130317219
 Transform:
@@ -2892,10 +2982,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -3016,10 +3116,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3190,10 +3300,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3438,7 +3558,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &153036069
 Transform:
@@ -3609,7 +3729,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &174034127
 Transform:
@@ -3727,7 +3847,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &177698301
 Transform:
@@ -3897,10 +4017,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3931,6 +4061,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
@@ -4686,7 +4821,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &261924974
 Transform:
@@ -5200,10 +5335,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -5495,7 +5640,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &317307362
 Transform:
@@ -5613,7 +5758,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &318155512
 Transform:
@@ -5901,10 +6046,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -6025,10 +6180,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6135,7 +6300,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &326223168
 Transform:
@@ -6412,10 +6577,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -6496,10 +6671,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -6578,7 +6763,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &347816453
 Transform:
@@ -6872,10 +7057,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6946,10 +7141,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7078,7 +7283,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &364624165
 Transform:
@@ -7565,10 +7770,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7733,10 +7948,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7849,6 +8074,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
@@ -8116,10 +8346,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8144,6 +8384,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -8575,10 +8825,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8607,7 +8867,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &453516389
 Transform:
@@ -8727,10 +8987,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -8815,7 +9085,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &469902941
 Transform:
@@ -8986,7 +9256,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &472848675
 Transform:
@@ -9146,10 +9416,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3082704940942305320, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
@@ -9285,10 +9565,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -9415,10 +9705,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9447,7 +9747,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &507953578
 Transform:
@@ -9661,6 +9961,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_TrashGroup_5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3547012249510271402, guid: d71483fa0e2f0e34b9292fd28497fd99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4958137357803642965, guid: d71483fa0e2f0e34b9292fd28497fd99,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9738,7 +10043,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &519993787
 Transform:
@@ -9931,6 +10236,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_TrashGroup_10
       objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10008,7 +10318,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &535323843
 Transform:
@@ -10128,10 +10438,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -10252,10 +10572,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10416,10 +10746,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10600,6 +10940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
@@ -10828,7 +11173,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &570670812
 Transform:
@@ -11030,7 +11375,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &575911983
 Transform:
@@ -11148,7 +11493,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &577858569
 Transform:
@@ -11318,10 +11663,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11380,10 +11735,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -11514,10 +11879,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11729,10 +12104,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11959,10 +12344,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12059,7 +12454,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &609928805
 Transform:
@@ -12245,7 +12640,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &611166061
 Transform:
@@ -12503,10 +12898,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12537,10 +12942,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -12781,10 +13196,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13049,6 +13474,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
@@ -13375,10 +13805,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13553,7 +13993,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &666875685
 Transform:
@@ -13986,10 +14426,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14018,7 +14468,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &683452515
 Transform:
@@ -14629,10 +15079,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14663,10 +15123,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -14793,10 +15263,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14931,7 +15411,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &728902762
 Transform:
@@ -15057,10 +15537,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -15161,10 +15651,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -15399,10 +15899,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15473,10 +15983,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15505,7 +16025,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &778145034
 Transform:
@@ -15903,6 +16423,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_TrashGroup_5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3547012249510271402, guid: d71483fa0e2f0e34b9292fd28497fd99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4958137357803642965, guid: d71483fa0e2f0e34b9292fd28497fd99,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16069,7 +16594,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &805990378
 Transform:
@@ -16189,10 +16714,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -16318,6 +16853,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree2
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16341,6 +16886,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547012249510271402, guid: d71483fa0e2f0e34b9292fd28497fd99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4958137357803642965, guid: d71483fa0e2f0e34b9292fd28497fd99,
         type: 3}
@@ -16540,7 +17090,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &820701391
 Transform:
@@ -16734,10 +17284,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16808,10 +17368,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17040,10 +17610,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17214,10 +17794,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17246,7 +17836,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &849862101
 Transform:
@@ -17366,10 +17956,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -17444,6 +18044,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
@@ -17524,10 +18129,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -17708,10 +18323,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -17832,10 +18457,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18214,10 +18849,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -18347,10 +18992,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -18433,7 +19088,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &914251300
 Transform:
@@ -18589,10 +19244,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18621,7 +19286,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &915482229
 Transform:
@@ -18791,10 +19456,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18865,10 +19540,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19038,10 +19723,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19195,10 +19890,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19279,10 +19984,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19553,10 +20268,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19705,10 +20430,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -19891,7 +20626,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &992586051
 Transform:
@@ -20009,7 +20744,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &992790077
 Transform:
@@ -20123,6 +20858,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
@@ -20334,7 +21074,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &999424110
 Transform:
@@ -20500,10 +21240,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20534,10 +21284,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -20618,10 +21378,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -20783,7 +21553,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!220 &1032539720
 LightProbeGroup:
@@ -69808,10 +70578,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -69882,10 +70662,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -69916,10 +70706,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -69998,7 +70798,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1046678328
 Transform:
@@ -70118,10 +70918,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -70300,7 +71110,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1055756476
 Transform:
@@ -70418,7 +71228,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1060960355
 Transform:
@@ -70637,10 +71447,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -71019,10 +71839,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -71227,7 +72057,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1100853502
 Transform:
@@ -71345,7 +72175,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1107820262
 Transform:
@@ -71584,7 +72414,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1111445084
 Transform:
@@ -71702,7 +72532,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1112794034
 Transform:
@@ -71980,6 +72810,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
+    - target: {fileID: 1292175598908564801, guid: cda5b7f74f7dd384089367719d253f77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789582410793624129, guid: cda5b7f74f7dd384089367719d253f77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -72001,7 +72841,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1127708589
 Transform:
@@ -72171,10 +73011,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -72205,10 +73055,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -72488,10 +73348,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -72632,10 +73502,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -72706,10 +73586,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -72780,10 +73670,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -72864,10 +73764,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73047,10 +73957,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73081,10 +74001,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -73275,7 +74205,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1219577086
 Transform:
@@ -73393,7 +74323,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1220835308
 Transform:
@@ -73513,10 +74443,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -73591,6 +74531,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547012249510271402, guid: d71483fa0e2f0e34b9292fd28497fd99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4958137357803642965, guid: d71483fa0e2f0e34b9292fd28497fd99,
         type: 3}
@@ -73805,10 +74750,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73938,10 +74893,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -74034,10 +74999,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -74188,10 +75163,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74262,10 +75247,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74336,10 +75331,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74468,6 +75473,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1655366078}
     m_Modifications:
+    - target: {fileID: 4737736154334569828, guid: a5a8048c3779dc640a256746ce776b0d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5767324359766777731, guid: a5a8048c3779dc640a256746ce776b0d,
         type: 3}
       propertyPath: m_Name
@@ -74622,10 +75632,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74738,7 +75758,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1321386509
 Transform:
@@ -74963,10 +75983,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -75281,10 +76311,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75313,7 +76353,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1342083304
 Transform:
@@ -75431,7 +76471,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1350223312
 Transform:
@@ -75730,10 +76770,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -76143,10 +77193,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -76258,10 +77318,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -76382,10 +77452,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -76412,7 +77492,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1390961635
 Transform:
@@ -76508,10 +77588,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -76825,10 +77915,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -76937,10 +78037,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -77019,7 +78129,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1434938891
 Transform:
@@ -77388,7 +78498,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1453619312
 Transform:
@@ -77602,10 +78712,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -78191,10 +79311,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78265,10 +79395,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78293,6 +79433,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
@@ -78534,10 +79679,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78668,6 +79823,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -78745,7 +79905,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1525565179
 Transform:
@@ -78905,10 +80065,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78939,10 +80109,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -79023,10 +80203,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -79339,7 +80529,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1555141903
 Transform:
@@ -79509,10 +80699,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -79614,10 +80814,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -79832,10 +81042,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -80014,7 +81234,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1608422887
 Transform:
@@ -80214,10 +81434,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -80410,10 +81640,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -80489,6 +81729,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -80562,6 +81807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TrashGroup_10 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
@@ -80724,10 +81974,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -80754,7 +82014,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1655366078
 Transform:
@@ -80819,7 +82079,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1655689710
 Transform:
@@ -81003,7 +82263,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1667236671
 Transform:
@@ -81085,10 +82345,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -81346,10 +82616,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -81541,10 +82821,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -81645,10 +82935,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -81719,10 +83019,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -81878,6 +83188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_TrashGroup_10
       objectReference: {fileID: 0}
+    - target: {fileID: 2389668238369025226, guid: fcc4698059741694b8109a050668ff83,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6169202619118059582, guid: fcc4698059741694b8109a050668ff83,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -82007,10 +83322,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -82081,10 +83406,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -82205,10 +83540,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -82484,10 +83829,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -82566,7 +83921,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1770602425
 Transform:
@@ -82684,7 +84039,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1771282133
 Transform:
@@ -82886,7 +84241,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1791881455
 Transform:
@@ -83004,7 +84359,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1791892591
 Transform:
@@ -83221,7 +84576,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1794768977
 Transform:
@@ -83331,6 +84686,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1655366078}
     m_Modifications:
+    - target: {fileID: 4737736154334569828, guid: a5a8048c3779dc640a256746ce776b0d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5767324359766777731, guid: a5a8048c3779dc640a256746ce776b0d,
         type: 3}
       propertyPath: m_Name
@@ -83579,10 +84939,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -83663,10 +85033,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -84228,10 +85608,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -84352,10 +85742,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -84384,7 +85784,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1877474099
 Transform:
@@ -84859,10 +86259,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -84943,10 +86353,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -85025,7 +86445,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1928540788
 Transform:
@@ -85145,10 +86565,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -85229,10 +86659,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -85773,10 +87213,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -85847,10 +87297,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -85919,6 +87379,11 @@ PrefabInstance:
     - target: {fileID: 4656814093218413769, guid: 624e5c23e65838048a6fb40fa47190a3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532515905942776494, guid: 624e5c23e65838048a6fb40fa47190a3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6944781579530139119, guid: 624e5c23e65838048a6fb40fa47190a3,
@@ -86125,7 +87590,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1992725596
 Transform:
@@ -86491,10 +87956,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -86575,10 +88050,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -86607,7 +88092,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2005624734
 Transform:
@@ -86822,7 +88307,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2021984290
 Transform:
@@ -86942,7 +88427,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2024661679
 Transform:
@@ -87060,7 +88545,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2028286337
 Transform:
@@ -87211,7 +88696,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2033540660
 Transform:
@@ -87387,10 +88872,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5600260714126271933, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478337182363288667, guid: 16df18cf2c23c174bad1faf9bd22af93,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -87510,10 +89005,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -87694,10 +89199,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1783252569154010463, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111543503273837820, guid: 63eea9c6f05039940ac6cf764028db68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5403162345405226678, guid: 63eea9c6f05039940ac6cf764028db68,
         type: 3}
@@ -87776,7 +89291,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2052705483
 Transform:
@@ -87936,10 +89451,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -88010,10 +89535,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -88085,7 +89620,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2089779182
 Transform:
@@ -88287,7 +89822,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2102962442
 Transform:
@@ -88541,6 +90076,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 14.543
       objectReference: {fileID: 0}
+    - target: {fileID: 5532515905942776494, guid: 624e5c23e65838048a6fb40fa47190a3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6944781579530139119, guid: 624e5c23e65838048a6fb40fa47190a3,
         type: 3}
       propertyPath: m_Name
@@ -88615,10 +90155,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515449165496125736, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
         type: 3}
       propertyPath: m_Name
       value: Fruit Bush (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392939375247258294, guid: c6358ef9b9334f4418742d1c6d35aba0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -88845,7 +90395,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2136640192
 Transform:
@@ -88963,7 +90513,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2139807791
 Transform:
@@ -89458,7 +91008,7 @@ PrefabInstance:
     - target: {fileID: 7669337301409601350, guid: 226fdf38d311f2445b2669e8e6ba1c17,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 126
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7848219178087863614, guid: 226fdf38d311f2445b2669e8e6ba1c17,
         type: 3}
@@ -89839,6 +91389,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 85210890}
     m_Modifications:
+    - target: {fileID: 3046238771408179629, guid: 1cc275cbb2f9ebe439aecff451c5701b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5203273837035255012, guid: 1cc275cbb2f9ebe439aecff451c5701b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -89893,6 +91448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145283530544087794, guid: 1cc275cbb2f9ebe439aecff451c5701b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
