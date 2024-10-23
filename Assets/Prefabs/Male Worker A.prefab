@@ -9,10 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8595432027990656678}
+  - component: {fileID: -301750942044546350}
   - component: {fileID: 4040367695240783828}
   - component: {fileID: 3126607194637701201}
   - component: {fileID: 4476549023438524750}
   - component: {fileID: 5584076847632333992}
+  - component: {fileID: 4886922707469958399}
   - component: {fileID: 7235471027542689266}
   m_Layer: 6
   m_Name: Male Worker A
@@ -40,6 +42,33 @@ Transform:
   - {fileID: 5648473222880535316}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &-301750942044546350
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6723119810302767364}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!195 &4040367695240783828
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -101,6 +130,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMoving: 0
   anim: {fileID: 4336791894517402313}
+--- !u!114 &4886922707469958399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6723119810302767364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0224f6d903848de489b3597a4f1fb378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7235471027542689266
 MonoBehaviour:
   m_ObjectHideFlags: 0

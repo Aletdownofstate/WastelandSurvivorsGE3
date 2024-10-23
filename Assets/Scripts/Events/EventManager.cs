@@ -113,7 +113,7 @@ public class EventManager : MonoBehaviour
             switch (currentWellbeingEvent)
             {
                 case WellbeingEvent.GenericIllness:
-                    InitialiseEventText($"EVENT!", $"Some people have falled ill!", $"Morale has slightly decreased");
+                    InitialiseEventText($"EVENT!", $"Some people have fallen ill!", $"Morale has slightly decreased");
                     ShowEventUI();
                     break;
             }
