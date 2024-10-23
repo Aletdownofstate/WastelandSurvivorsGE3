@@ -118,7 +118,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _UVSec: 0
-    - _WindStreangth: 0.25
+    - _WindStreangth: 0.05
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
