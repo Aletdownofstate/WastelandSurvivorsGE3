@@ -18,7 +18,7 @@ public class PlacementSystem : MonoBehaviour
 
     private int selectedObjectIndex = -1;
 
-    private Vector3Int lastDetectedPosition = Vector3Int.zero;
+    private Vector3 lastDetectedPosition = Vector3Int.zero;
 
     private void Start()
     {
@@ -36,13 +36,13 @@ public class PlacementSystem : MonoBehaviour
 
     private void Update()
     {
+        Vector3 mousePosition = inputManager.GetSelectedMapPosition();
+        Vector3Int gridPosition = grid.WorldToCell(mousePosition);
+        
         if (selectedObjectIndex < 0)
         {
             return;
         }
-
-        Vector3 mousePosition = inputManager.GetSelectedMapPosition();
-        Vector3Int gridPosition = grid.WorldToCell(mousePosition);
 
         if (lastDetectedPosition != gridPosition)
         {
@@ -61,7 +61,7 @@ public class PlacementSystem : MonoBehaviour
             }
 
             preview.UpdatePosition(grid.CellToWorld(gridPosition), placementValidity);
-            lastDetectedPosition = gridPosition;
+            lastDetectedPosition = gridPosition;            
         }
     }
 
@@ -158,9 +158,9 @@ public class PlacementSystem : MonoBehaviour
             return;
         }
 
-        if (ResourceManager.Instance.GetResourceAmount("Wood") < selectedObjectData.WoodRequired || 
-            ResourceManager.Instance.GetResourceAmount("Metal") < selectedObjectData.MetalRequired || 
-            ResourceManager.Instance.GetResourceAmount("Food") < selectedObjectData.FoodRequired || 
+        if (ResourceManager.Instance.GetResourceAmount("Wood") < selectedObjectData.WoodRequired ||
+            ResourceManager.Instance.GetResourceAmount("Metal") < selectedObjectData.MetalRequired ||
+            ResourceManager.Instance.GetResourceAmount("Food") < selectedObjectData.FoodRequired ||
             ResourceManager.Instance.GetResourceAmount("Water") < selectedObjectData.WaterRequired)
         {
             Debug.Log("Not enough resources to proceed");
@@ -184,6 +184,7 @@ public class PlacementSystem : MonoBehaviour
             }
 
             // Add building specific stuff here
+            // Checks to see if building is actually placed or still being previewed
 
             TentObject tentObject = newObject.GetComponent<TentObject>();
             if (tentObject != null)
@@ -191,12 +192,24 @@ public class PlacementSystem : MonoBehaviour
                 tentObject.OnPlace();
             }
 
+            WarehouseObject warehouseObject = newObject.GetComponent<WarehouseObject>();
+            if (warehouseObject != null)
+            {
+                warehouseObject.OnPlace();
+            }
+
+            WaterTowerObject waterTowerObject = newObject.GetComponent<WaterTowerObject>();
+            if (waterTowerObject != null)
+            {
+                waterTowerObject.OnPlace();
+            }
+
             //
 
             placedGameObjects.Add(newObject);
             GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ? floorData : furnitureData;
             selectedData.AddObjectAt(gridPosition, database.objectsData[selectedObjectIndex].Size, database.objectsData[selectedObjectIndex].ID, placedGameObjects.Count - 1);
-            
+
             StopPlacement();
         }
         preview.UpdatePosition(grid.CellToWorld(gridPosition), false);

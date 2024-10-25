@@ -1,18 +1,24 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class WorkerTaskManager : MonoBehaviour
 {
     private WorkerNavmesh workerNavmesh;
+    private NavMeshAgent navMeshAgent;
     private UnitSelectionManager unitSelectionManager;
     private Transform resourceTarget;
     private Transform dropOffPoint;
 
     [SerializeField] private AudioSource woodSound, metalSound;
+    [SerializeField] private Animator anim;
+    [SerializeField] private Renderer axeObject;
+    [SerializeField] private GameObject bottleObject;
+    [SerializeField] private GameObject bucketObject;
 
     public enum WorkerState { Idle, MovingToResource, Gathering, ReturningToDropoff }
-    public WorkerState currentState;
+    public WorkerState currentWorkerState;
 
     public PersonalityManager.PersonalityType personalityType;
     private float gatheringBonus;
@@ -33,16 +39,17 @@ public class WorkerTaskManager : MonoBehaviour
     private void Awake()
     {
         workerNavmesh = GetComponent<WorkerNavmesh>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
 
         unitSelectionManager = GameObject.FindGameObjectWithTag("UnitSelectionManager").GetComponent<UnitSelectionManager>();
-        currentState = WorkerState.Idle;        
+        currentWorkerState = WorkerState.Idle;
     }
 
     private void Start()
     {
         workerName = NameManager.Instance.GetWorkerName();
         workerSkill = SkillsManager.Instance.GetSkill();
-        personalityType = PersonalityManager.Instance.ChoosePersonality();        
+        personalityType = PersonalityManager.Instance.ChoosePersonality();
 
         switch (personalityType)
         {
@@ -111,11 +118,23 @@ public class WorkerTaskManager : MonoBehaviour
                 break;
         }        
 
-        switch (currentState)
+        switch (currentWorkerState)
         {
             case WorkerState.MovingToResource:
+
+                if (resourceTarget == null)
+                {
+                    FindNextAvailableResource();
+                    if (resourceTarget == null)
+                    {
+                        currentWorkerState = WorkerState.Idle;
+                        return;
+                    }
+                }
+
                 Vector3 closestPoint = GetClosestPointOnResource(resourceTarget);
                 workerNavmesh.MoveToDestination(closestPoint);
+
                 if (workerNavmesh.HasReachedDestination())
                 {
                     Destroy(unitSelectionManager.currentGroundMarker);
@@ -133,6 +152,24 @@ public class WorkerTaskManager : MonoBehaviour
 
             case WorkerState.Idle:
                 break;
+        }
+
+        // Animations
+
+        if (navMeshAgent.velocity != Vector3.zero)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
+
+        if (currentWorkerState != WorkerState.Gathering)
+        {
+            anim.SetBool("isPicking", false);
+            anim.SetBool("isCollecting", false);
+            anim.SetBool("isChopping", false);
         }
     }
 
@@ -156,12 +193,12 @@ public class WorkerTaskManager : MonoBehaviour
         resourceTarget = resourceTransform;
         dropOffPoint = closestDropOff.transform;
         resourceType = resource;
-        currentState = WorkerState.MovingToResource;
+        currentWorkerState = WorkerState.MovingToResource;
     }
 
     private IEnumerator GatherResources()
     {
-        currentState = WorkerState.Gathering;
+        currentWorkerState = WorkerState.Gathering;
 
         AudioSource gatheringSound = null;        
 
@@ -169,17 +206,33 @@ public class WorkerTaskManager : MonoBehaviour
         {
             case "Wood":
                 gatheringSound = woodSound;
+                anim.SetBool("isChopping", true);
+                axeObject.enabled = true;
+                bucketObject.SetActive(false);
+                bottleObject.SetActive(false);
                 break;
 
             case "Metal":
                 gatheringSound = metalSound;
                 gatheringSound.volume = 0.4f;
+                anim.SetBool("isCollecting", true);
+                axeObject.enabled = false;
+                bucketObject.SetActive(false);
+                bottleObject.SetActive(false);
                 break;
 
             case "Food":
+                anim.SetBool("isPicking", true);
+                axeObject.enabled = false;
+                bucketObject.SetActive(true);
+                bottleObject.SetActive(false);
                 break;
 
             case "Water":
+                anim.SetBool("isPicking", true);
+                axeObject.enabled = false;
+                bucketObject.SetActive(false);
+                bottleObject.SetActive(true);
                 break;
         }        
 
@@ -188,29 +241,120 @@ public class WorkerTaskManager : MonoBehaviour
             StartCoroutine(GatheringSoundDelay(gatheringSound));
         }
 
-        yield return new WaitForSeconds(gatherDuration);
+        yield return new WaitForSeconds(gatherDuration);        
 
         if (gatheringSound != null)
         {
             gatheringSound.Stop();
         }
 
-        currentResources = maxCarryAmount + (foodSkillBonus + metalSkillBonus + woodSkillBonus);
-        currentState = WorkerState.ReturningToDropoff;
+        axeObject.enabled = false;
+        bottleObject.SetActive(false);
+        bucketObject.SetActive(false);
+
+        switch (resourceTarget.tag)
+        {
+            case "Wood":
+                WoodResource woodResource = resourceTarget.parent.gameObject.GetComponent<WoodResource>();
+
+                if (woodResource.currentResourceState == WoodResource.ResourceState.Depleted)
+                {
+                    resourceTarget = null;
+                    FindNextAvailableResource();
+                }
+
+                currentResources = maxCarryAmount + (foodSkillBonus + metalSkillBonus + woodSkillBonus);
+                woodResource.DepleteResource(currentResources);
+
+                currentWorkerState = WorkerState.ReturningToDropoff;
+                break;
+
+            case "Metal":
+                MetalResource metalResource = resourceTarget.GetComponent<MetalResource>();
+
+                if (metalResource.currentResourceState == MetalResource.ResourceState.Depleted)
+                {
+                    resourceTarget = null;
+                    FindNextAvailableResource();
+                }
+
+                currentResources = maxCarryAmount + (foodSkillBonus + metalSkillBonus + woodSkillBonus);
+                metalResource.DepleteResource(currentResources);
+
+                currentWorkerState = WorkerState.ReturningToDropoff;
+
+                break;
+
+            case "Food":
+                FoodResource foodResource = resourceTarget.GetComponent<FoodResource>();
+
+                if (foodResource.currentResourceState == FoodResource.ResourceState.Depleted)
+                {
+                    resourceTarget = null;
+                    FindNextAvailableResource();
+                }
+
+                currentResources = maxCarryAmount + (foodSkillBonus + metalSkillBonus + woodSkillBonus);
+                foodResource.DepleteResource(currentResources);
+
+                currentWorkerState = WorkerState.ReturningToDropoff;
+                break;
+
+            case "Water":
+                currentResources = maxCarryAmount + (foodSkillBonus + metalSkillBonus + woodSkillBonus);
+                currentWorkerState = WorkerState.ReturningToDropoff;
+                break;
+        }
+    }
+
+    private void FindNextAvailableResource()
+    {
+        GameObject[] resources = GameObject.FindGameObjectsWithTag(resourceType);
+        if (resources.Length == 0)
+        {
+            currentWorkerState = WorkerState.Idle;
+            return;
+        }
+
+        float closestDistance = Mathf.Infinity;
+        GameObject closestResource = null;
+
+        foreach (GameObject resource in resources)
+        {
+            if (resource != null)
+            {
+                float distance = Vector3.Distance(transform.position, resource.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestResource = resource;
+                }
+            }
+        }
+
+        if (closestResource != null)
+        {
+            resourceTarget = closestResource.transform;
+            currentWorkerState = WorkerState.MovingToResource;
+        }
+        else
+        {
+            currentWorkerState = WorkerState.Idle;
+        }
     }
 
     private void DepositResources()
     {
         ResourceManager.Instance.AddResource(resourceType, currentResources);
         currentResources = 0;
-        currentState = WorkerState.MovingToResource;
+        currentWorkerState = WorkerState.MovingToResource;
     }
 
     public void InterruptCurrentTask()
     {
         isInterrupted = true;
         StopAllCoroutines();
-        currentState = WorkerState.Idle;
+        currentWorkerState = WorkerState.Idle;
         isInterrupted = false;
     }
 
@@ -224,7 +368,7 @@ public class WorkerTaskManager : MonoBehaviour
 
         yield return new WaitForSeconds(delay);
 
-        if (currentState == WorkerState.Gathering)
+        if (currentWorkerState == WorkerState.Gathering)
         {
             StartCoroutine(GatheringSoundDelay(gatheringSound));
         }

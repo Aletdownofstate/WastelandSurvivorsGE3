@@ -14,6 +14,12 @@ TagManager:
   - Wood
   - Metal
   - Food
+  - Water
+  - Tent
+  - Warehouse
+  - WaterDropOffPoint
+  - WaterTower
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
