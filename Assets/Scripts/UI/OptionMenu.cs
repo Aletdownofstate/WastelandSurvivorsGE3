@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class OptionMenu : MonoBehaviour
 {
     [Header("Option Menu UI")]
-    //public CameraController MainCameraController;
     public Toggle fullscreenToggle;
     public Slider volumeSlider;
     public Slider cameraSpeedSlider;
