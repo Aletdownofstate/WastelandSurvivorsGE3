@@ -20,11 +20,11 @@ public class TimeManager : MonoBehaviour
             Instance = this;
         }
         DontDestroyOnLoad(this);
-    }
+    }    
 
-    void Start()
+    public void StartGameDay()
     {
-        StartCoroutine(GameDay());
+        StartCoroutine(GameDay());        
     }
 
     private IEnumerator GameDay()

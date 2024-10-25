@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     private FischlWorks_FogWar.csFogWar fogWar;
 
+    [SerializeField] GameObject homePoint;
     [SerializeField] GameObject maleWorkerA, maleWorkerB, femaleWorker;
     private CameraController cameraController;
 
@@ -19,19 +20,13 @@ public class GameManager : MonoBehaviour
     private bool isEventVisible = false;
     private bool hasDelayTriggered = false;
 
-    private bool isChapterStarted = false;
-
-    private bool chapterOneGoalOne, chapterOneGoalTwo;    
-    private int tentAmount = 0;
-
-    private bool chapterTwoGoalOne, chapterThreeFlags;    
-    private int warehouseAmount = 0;
-
-    private bool chapterFourGoal, chapterFourFlags;
-
-    private bool chapterFiveGoal, chapterFiveFlags;
-
+    private bool isChapterStarted = false;    
+    private bool chapterOneGoalOne, chapterOneGoalTwo, chapterTwoGoalOne, chapterFourGoal, chapterFiveGoal;
     [HideInInspector] public bool chapterThreeGoalOne;
+    private bool chapterThreeFlags, chapterFourFlags, chapterFiveFlags, endFlags;
+
+    private int tentAmount = 0;
+    private int warehouseAmount = 0;
 
     private void Awake()
     {
@@ -46,9 +41,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         cameraController = Camera.main.GetComponent<CameraController>();
-        fogWar = GameObject.Find("FogWar").GetComponent<FischlWorks_FogWar.csFogWar>();
 
-        GameObject homePoint = GameObject.Find("Home Point");
+        fogWar = GameObject.Find("FogWar").GetComponent<FischlWorks_FogWar.csFogWar>();        
         fogWar.AddFogRevealer(new FischlWorks_FogWar.csFogWar.FogRevealer(homePoint.transform, 15, false));
     }
 
@@ -278,7 +272,7 @@ public class GameManager : MonoBehaviour
 
                 if (isDelayComplete && !isEventVisible)
                 {
-                    EventManager.Instance.InitialiseEventText($"Chapter Four", $"\"We can use the tower to expand your settlement now. Recruit more survivors!\"", $"Increase population to 10");
+                    EventManager.Instance.InitialiseEventText($"Chapter Four", $"\"We can use the tower to expand your settlement now. Recruit more survivors!\"", $"Increase population to 6");
                     EventManager.Instance.ShowEventUI();
                     isEventVisible = true;
                     Debug.Log("Entering Chapter Four");
@@ -287,7 +281,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Reach a population of at least 10
+        // Reach a population of at least 6
 
         if (currentGameState == GameState.ChapterFour)
         {
@@ -299,13 +293,14 @@ public class GameManager : MonoBehaviour
                 hasDelayTriggered = false;
                 startDelay = true;
                 chapterFourFlags = true;
-            }
 
-            GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
+                SpawnNewWorker spawnNewWorker = homePoint.GetComponent<SpawnNewWorker>();
+                spawnNewWorker.canSpawn = true;
+            }
 
             if (!chapterFourGoal)
             {
-                if (units.Length >= 10)
+                if (UnitSelectionManager.Instance.allUnitsList.Count >= 6)
                 {
                     chapterFourGoal = true;
                 }
@@ -338,7 +333,7 @@ public class GameManager : MonoBehaviour
 
                 if (isDelayComplete && !isEventVisible)
                 {
-                    EventManager.Instance.InitialiseEventText($"Chapter Five", $"\"Do whatever\"", $"Some goal");
+                    EventManager.Instance.InitialiseEventText($"Chapter Five", $"\"It's time to prepare for the winter! Build up our supply stocks.\"", $"Gather 10,000 of each resource");
                     EventManager.Instance.ShowEventUI();
                     isEventVisible = true;
                     Debug.Log("Entering Chapter Five");
@@ -359,6 +354,8 @@ public class GameManager : MonoBehaviour
                 hasDelayTriggered = false;
                 startDelay = true;
                 chapterFiveFlags = true;
+
+                TimeManager.Instance.StartGameDay();
             }
 
             int food = ResourceManager.Instance.GetResourceAmount("Food");
@@ -368,9 +365,9 @@ public class GameManager : MonoBehaviour
 
             if (!chapterFiveGoal)
             {
-                if (wood >= 20000 && metal >= 20000 && water >= 20000 && food >= 20000)
+                if (wood >= 10000 && metal >= 10000 && water >= 10000 && food >= 10000)
                 {
-                    chapterOneGoalOne = true;
+                    chapterFiveGoal = true;
                     Debug.Log($"{currentGameState}: Goal One complete");
                 }
             }
@@ -402,7 +399,7 @@ public class GameManager : MonoBehaviour
 
                 if (isDelayComplete && !isEventVisible)
                 {
-                    EventManager.Instance.InitialiseEventText($"Chapter Four", $"\"Do whatever\"", $"Some goal");
+                    EventManager.Instance.InitialiseEventText($"Final Chapter", $"\"We have enough resources to survive the winter! This is the end of the game!\"", $"Thanks for playing!");
                     EventManager.Instance.ShowEventUI();
                     isEventVisible = true;
                     Debug.Log("Entering Ending");
@@ -415,7 +412,10 @@ public class GameManager : MonoBehaviour
 
         if (currentGameState == GameState.End)
         {
-
+            if (TimeManager.Instance.daysRemaining == 0)
+            {
+                TransitionManager.Instance.canFadeOut = true;
+            }
         }
     }
 

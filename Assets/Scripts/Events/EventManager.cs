@@ -79,12 +79,25 @@ public class EventManager : MonoBehaviour
             {
                 case EventType.None:
                     break;
+
                 case EventType.Resource:
                     currentResourceEvent = (ResourceEvent)Random.Range(0, System.Enum.GetValues(typeof(ResourceEvent)).Length);                    
                     break;
+
                 case EventType.Wellbeing:
-                    currentWellbeingEvent = (WellbeingEvent)Random.Range(0, System.Enum.GetValues(typeof(WellbeingEvent)).Length);
-                    break;
+                    
+                    GameObject[] medicalTents = GameObject.FindGameObjectsWithTag("MedicalTent");
+
+                    if (medicalTents.Length >= 1)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        currentWellbeingEvent = (WellbeingEvent)Random.Range(0, System.Enum.GetValues(typeof(WellbeingEvent)).Length);
+                        break;
+                    }
+
                 case EventType.Social:
                     currentSocialEvent = (SocialEvent)Random.Range(0, System.Enum.GetValues(typeof(SocialEvent)).Length);
                     break;

@@ -49,3 +49,12 @@ MonoBehaviour:
     <FoodRequired>k__BackingField: 0
     <MetalRequired>k__BackingField: 500
     <WaterRequired>k__BackingField: 0
+  - <Name>k__BackingField: Medical Tent
+    <ID>k__BackingField: 4
+    <Size>k__BackingField: {x: 10, y: 8}
+    <Prefab>k__BackingField: {fileID: 5611473371718136813, guid: ba0d548a8deeeaa4086b5eb7b290b879,
+      type: 3}
+    <WoodRequired>k__BackingField: 500
+    <FoodRequired>k__BackingField: 0
+    <MetalRequired>k__BackingField: 500
+    <WaterRequired>k__BackingField: 0
