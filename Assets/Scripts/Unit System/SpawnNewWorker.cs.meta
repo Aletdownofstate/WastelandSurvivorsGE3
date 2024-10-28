@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f3c23262b2385884d8f0ddd462a75a86
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - maleWorkerA: {instanceID: 0}
+  - maleWorkerB: {instanceID: 0}
+  - femaleWorker: {instanceID: 0}
+  - spawnPoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

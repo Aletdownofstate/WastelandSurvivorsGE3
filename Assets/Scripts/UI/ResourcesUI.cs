@@ -6,6 +6,11 @@ public class ResourcesUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI woodText, waterText, foodText, metalText, populationText, moraleText, temperatureText, dayCountdownText, fpsText;
     public float deltaTime;
 
+    private void Start()
+    {
+        dayCountdownText.enabled = false;
+    }
+
 
     void Update()
     {
@@ -26,5 +31,9 @@ public class ResourcesUI : MonoBehaviour
         float fps = 1.0f / deltaTime;
         fpsText.text = "FPS: " + Mathf.Ceil(fps).ToString();
 
+        if (GameManager.Instance.currentGameState == GameManager.GameState.ChapterFive)
+        {
+            dayCountdownText.enabled = true;
+        }
     }
 }

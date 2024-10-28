@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5345574106687942123}
-  - component: {fileID: 3118543379640507306}
+  - component: {fileID: 7514785364568481164}
   m_Layer: 0
   m_Name: ResourceManager
   m_TagString: ResourceManager
@@ -76,7 +76,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8240020842275697397}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3118543379640507306
+--- !u!114 &7514785364568481164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,6 +138,7 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: 5140436b53f1f984bbb1d2847e35717a, type: 2}
   unitSelectionBox: {fileID: 0}
   preview: {fileID: 174453475001503403}
+  buildSound: {fileID: 0}
 --- !u!1 &5072237888614031474
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,9 +285,9 @@ Transform:
   m_GameObject: {fileID: 7067320390420168206}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.015, z: -0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.1, z: -0}
+  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6816093633222749542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -406,10 +407,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1064aaea525c344193466f209d3a2c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previewYOffset: 0.06
   cellIndicator: {fileID: 8240285793293010235}
   previewMaterialPrefab: {fileID: 2100000, guid: 89ee9c569f152754691eb250a76ebc26,
     type: 2}
+  previewYOffset: 0.06
+  gridSize: 1
+  groundY: 0
 --- !u!1001 &7519874662338218172
 PrefabInstance:
   m_ObjectHideFlags: 0

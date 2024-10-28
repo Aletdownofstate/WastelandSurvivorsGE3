@@ -42,16 +42,7 @@ public class PopulationManager : MonoBehaviour
 
     private void CalculatePopulation()
     {
-        GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
-
-        foreach (GameObject unit in units)
-        {
-            if (!numberOfUnits.Contains(unit))
-            {
-                numberOfUnits.Add(unit);
-            }
-        }
-        population = numberOfUnits.Count;
+        population = UnitSelectionManager.Instance.allUnitsList.Count;
 
         if (populationCurrentCap > populationMax)
         {
