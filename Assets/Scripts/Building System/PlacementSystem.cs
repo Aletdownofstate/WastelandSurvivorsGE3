@@ -12,7 +12,7 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private ObjectsDatabaseSO database;
     [SerializeField] private UnitSelectionBox unitSelectionBox;
     [SerializeField] private PreviewSystem preview;
-    [SerializeField] private AudioSource buildSound;
+    [SerializeField] private AudioSource buildSound, deniedSound;    
 
     private GridData floorData, furnitureData;
     private List<GameObject> placedGameObjects = new();
@@ -109,6 +109,7 @@ public class PlacementSystem : MonoBehaviour
         if (missingResources)
         {
             Debug.Log("Not enough resources to build");
+            deniedSound.Play();
 
             if (missingWood)
             {
@@ -163,7 +164,7 @@ public class PlacementSystem : MonoBehaviour
             ResourceManager.Instance.GetResourceAmount("Metal") < selectedObjectData.MetalRequired ||
             ResourceManager.Instance.GetResourceAmount("Food") < selectedObjectData.FoodRequired ||
             ResourceManager.Instance.GetResourceAmount("Water") < selectedObjectData.WaterRequired)
-        {
+        {            
             Debug.Log("Not enough resources to proceed");
             StopPlacement();
             return;
