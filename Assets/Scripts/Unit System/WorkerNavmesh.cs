@@ -24,7 +24,7 @@ public class WorkerNavmesh : MonoBehaviour
         if (HasReachedDestination())
         {
             isMoving = false;
-        }
+        }        
     }
 
     public void MoveToDestination(Vector3 dest)

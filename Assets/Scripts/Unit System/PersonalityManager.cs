@@ -6,7 +6,7 @@ public class PersonalityManager : MonoBehaviour
 {
     public static PersonalityManager Instance { get; private set; }
 
-    public enum PersonalityType { HardWorking, Lazy, Optimist, Pessmist, Strong, Weak }
+    public enum PersonalityType { Hardworking, Lazy, Optimist, Pessmist, Strong, Weak }
     public PersonalityType personality;
 
     private void Awake()

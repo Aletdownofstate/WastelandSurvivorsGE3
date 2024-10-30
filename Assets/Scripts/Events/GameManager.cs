@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject homePoint;
     [SerializeField] GameObject maleWorkerA, maleWorkerB, femaleWorker;
+    [SerializeField] GameObject warehouseButton, waterTankButton, medicalTentButton, spawnWorkerButton;
+
     private CameraController cameraController;
 
     public enum GameState { Intro, ChapterOne, ChapterTwo, ChapterThree, ChapterFour, ChapterFive, End }
@@ -50,6 +52,11 @@ public class GameManager : MonoBehaviour
     {
         currentGameState = GameState.Intro;
         Debug.Log(currentGameState);
+
+        warehouseButton.SetActive(false);
+        waterTankButton.SetActive(false);
+        medicalTentButton.SetActive(false);
+        spawnWorkerButton.SetActive(false);
 
         InitialiseWorkers();
     }
@@ -169,6 +176,7 @@ public class GameManager : MonoBehaviour
                 isDelayComplete = false;
                 isEventVisible = false;
                 hasDelayTriggered = false;
+                warehouseButton.SetActive(true);
                 isChapterStarted = true;
             }
 
@@ -242,6 +250,7 @@ public class GameManager : MonoBehaviour
                 isEventVisible = false;
                 hasDelayTriggered = false;
                 startDelay = true;
+                waterTankButton.SetActive(true);
                 chapterThreeFlags = true;
             }
 
@@ -288,14 +297,19 @@ public class GameManager : MonoBehaviour
             if (!chapterFourFlags)
             {
                 Debug.Log("Resetting the chapter flags");
+                
+                SpawnNewWorker spawnNewWorker = homePoint.GetComponent<SpawnNewWorker>();
+                spawnNewWorker.canSpawn = true;
+
                 isDelayComplete = false;
                 isEventVisible = false;
                 hasDelayTriggered = false;
                 startDelay = true;
-                chapterFourFlags = true;
 
-                SpawnNewWorker spawnNewWorker = homePoint.GetComponent<SpawnNewWorker>();
-                spawnNewWorker.canSpawn = true;
+                medicalTentButton.SetActive(true);
+                spawnWorkerButton.SetActive(true);
+
+                chapterFourFlags = true;
             }
 
             if (!chapterFourGoal)

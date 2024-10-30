@@ -15,14 +15,8 @@ public class ClimateManager : MonoBehaviour
     private int tempOffset;
     private int prevTemp;
 
-    private bool isRaining = false;
-    private bool isFading = false;
-    private bool canThunder = true;
-    private bool canWolves = true;
-    private bool isLightFading = false;
-    private bool isRainAudioPlaying = false;
-    private bool isWindAudioPlaying = false;
-    private bool areBirdsSinging = false;
+    private bool isRaining, isFading, isLightFading, isRainAudioPlaying, isWindAudioPlaying, areBirdsSinging = false;    
+    private bool canThunder, canWolves = true;
 
     private void Awake()
     {
