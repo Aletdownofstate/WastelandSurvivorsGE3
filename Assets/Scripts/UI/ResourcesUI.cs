@@ -20,10 +20,10 @@ public class ResourcesUI : MonoBehaviour
 
         temperatureText.text = $"Temp: {ClimateManager.Instance.temp}C";
 
-        woodText.text = $"Wood: {ResourceManager.Instance.GetResourceAmount("Wood")}";
-        waterText.text = $"Water: {ResourceManager.Instance.GetResourceAmount("Water")}";
-        foodText.text = $"Food: {ResourceManager.Instance.GetResourceAmount("Food")}";
-        metalText.text = $"Metal: {ResourceManager.Instance.GetResourceAmount("Metal")}";
+        woodText.text = $"{ResourceManager.Instance.GetResourceAmount("Wood")}";
+        waterText.text = $"{ResourceManager.Instance.GetResourceAmount("Water")}";
+        foodText.text = $"{ResourceManager.Instance.GetResourceAmount("Food")}";
+        metalText.text = $"{ResourceManager.Instance.GetResourceAmount("Metal")}";
 
         dayCountdownText.text = $"Days Remaining Until Winter: {TimeManager.Instance.daysRemaining}";        
 

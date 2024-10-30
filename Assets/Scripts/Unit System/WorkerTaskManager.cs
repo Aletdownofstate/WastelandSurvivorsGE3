@@ -23,8 +23,10 @@ public class WorkerTaskManager : MonoBehaviour
     public PersonalityManager.PersonalityType personalityType;
     private float gatheringBonus;
 
-    public NameManager.WorkerName workerName;
+    public NameManager.MaleWorkerName maleWorkerName;
+    public NameManager.FemaleWorkerName femaleWorkerName;
     public SkillsManager.Skill workerSkill;
+    public string workerName = null;
     private int woodSkillBonus = 0;
     private int metalSkillBonus = 0;
     private int foodSkillBonus = 0;
@@ -47,13 +49,23 @@ public class WorkerTaskManager : MonoBehaviour
 
     private void Start()
     {
-        workerName = NameManager.Instance.GetWorkerName();
+        if (gameObject.name.Contains("Female"))
+        {
+            femaleWorkerName = NameManager.Instance.GetFemaleWorkerName();
+            workerName = femaleWorkerName.ToString();
+        }
+        else
+        {
+            maleWorkerName = NameManager.Instance.GetMaleWorkerName();
+            workerName = maleWorkerName.ToString();
+        }
+        
         workerSkill = SkillsManager.Instance.GetSkill();
         personalityType = PersonalityManager.Instance.ChoosePersonality();
 
         switch (personalityType)
         {
-            case PersonalityManager.PersonalityType.HardWorking:
+            case PersonalityManager.PersonalityType.Hardworking:
                 gatheringBonus = -2.0f;
                 break;
             case PersonalityManager.PersonalityType.Lazy:
@@ -120,6 +132,9 @@ public class WorkerTaskManager : MonoBehaviour
 
         switch (currentWorkerState)
         {
+            case WorkerState.Idle:                
+                break;
+
             case WorkerState.MovingToResource:
 
                 if (resourceTarget == null)
@@ -148,10 +163,7 @@ public class WorkerTaskManager : MonoBehaviour
                 {
                     DepositResources();
                 }
-                break;
-
-            case WorkerState.Idle:
-                break;
+                break;            
         }
 
         // Animations

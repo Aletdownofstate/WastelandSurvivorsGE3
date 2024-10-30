@@ -63,13 +63,17 @@ public class OptionMenu : MonoBehaviour
     {
         if (screenResDropdown.value == 0)
         {
-            Screen.SetResolution(1920, 1080, isFullscreen);
+            Screen.SetResolution(2560, 1440, isFullscreen);
         }
         if (screenResDropdown.value == 1)
         {
-            Screen.SetResolution(1280, 720, isFullscreen);
+            Screen.SetResolution(1920, 1080, isFullscreen);
         }
         if (screenResDropdown.value == 2)
+        {
+            Screen.SetResolution(1280, 720, isFullscreen);
+        }
+        if (screenResDropdown.value == 3)
         {
             Screen.SetResolution(640, 480, isFullscreen);
         }

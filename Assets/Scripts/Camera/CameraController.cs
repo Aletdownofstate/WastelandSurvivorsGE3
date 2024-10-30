@@ -25,6 +25,15 @@ public class CameraController : MonoBehaviour
             ResourceManager.Instance.AddResource("Metal", 1000);
             ResourceManager.Instance.AddResource("Water", 1000);
         }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            playerCamera.transform.position = new Vector3(10, 10, -2.99f);
+            //miniMapCamera.transform.position = new Vector3(10, 51, 13);
+            miniMapCamera.transform.position = new Vector3(8.5f, 34.5f, 9.5f);
+
+            Debug.Log("Returning camera to homepoint");
+        }
     }
 
     private void LateUpdate()
@@ -61,6 +70,9 @@ public class CameraController : MonoBehaviour
             pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
             pos.y = Mathf.Clamp(pos.y, minY, maxY);
             pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
+            mapPos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
+            mapPos.y = Mathf.Clamp(pos.y, minY, maxY);
+            mapPos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
 
             playerCamera.transform.position = pos;
             miniMapCamera.transform.position = mapPos;

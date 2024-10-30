@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class UnitSelectionManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class UnitSelectionManager : MonoBehaviour
     public List<GameObject> unitsSelected = new List<GameObject>();
 
     [HideInInspector] public GameObject currentGroundMarker;
+
+    [SerializeField] public TextMeshProUGUI unitNameText, unitPersonalityText, unitSkillText, currentTaskText, PopulationText, MoraleText, TempText, daysRemaining;
     
     public LayerMask clickable, groundLayerCast, woodLayer, metalLayer, foodLayer, waterLayer;
     public GameObject groundMarker;
@@ -20,7 +23,7 @@ public class UnitSelectionManager : MonoBehaviour
     private Camera cam;
     private int unitsMoving;
 
-    [SerializeField] private float unitSpreadRadius = 2.0f;
+    [SerializeField] private float unitSpreadRadius = 2.0f;    
 
     private void Awake()
     {
@@ -52,7 +55,56 @@ public class UnitSelectionManager : MonoBehaviour
     private void Update()
     {
         HandleUnitSelection();
-        HandleRightClickMovement();        
+        HandleRightClickMovement();
+
+        // Update UI with worker details
+
+        if (unitsSelected.Count > 0)
+        {
+            EnableWorkerDetails();
+
+            foreach (var unit in unitsSelected)
+            {
+                WorkerTaskManager workerTaskManager = unit.GetComponent<WorkerTaskManager>();
+
+                string currentWorkerState = null;
+                string currentWorkerSkill = null;
+
+                switch (workerTaskManager.currentWorkerState)
+                {
+                    case WorkerTaskManager.WorkerState.Idle:
+                        currentWorkerState = "Idle";
+                        break;
+                    case WorkerTaskManager.WorkerState.MovingToResource:
+                        currentWorkerState = "Moving to resource";
+                        break;
+                    case WorkerTaskManager.WorkerState.Gathering:
+                        currentWorkerState = "Gathering";
+                        break;
+                    case WorkerTaskManager.WorkerState.ReturningToDropoff:
+                        currentWorkerState = "Depositing resources";
+                        break;
+                }
+
+                if (workerTaskManager.workerSkill == SkillsManager.Skill.NaturalLeader)
+                {
+                    currentWorkerSkill = "Natural Leader";
+                }
+                else
+                {
+                    currentWorkerSkill = workerTaskManager.workerSkill.ToString();
+                }
+
+                unitNameText.text = ($"Name: {workerTaskManager.workerName}");
+                unitSkillText.text = ($"Skill: {currentWorkerSkill}");
+                unitPersonalityText.text = ($"Personality type: {workerTaskManager.personalityType}");
+                currentTaskText.text = ($"Current task: {currentWorkerState}");
+            }
+        }
+        else if (unitsSelected.Count == 0)
+        {
+            DisableWorkerDetails();
+        }
     }
 
     private void HandleUnitSelection()
@@ -113,7 +165,7 @@ public class UnitSelectionManager : MonoBehaviour
 
                 currentGroundMarker = Instantiate(groundMarker, primaryDestination, Quaternion.identity);
                 unitsMoving = unitsSelected.Count;
-
+                
                 DistributeUnitsToDestination(primaryDestination);
             }
 
@@ -269,5 +321,35 @@ public class UnitSelectionManager : MonoBehaviour
             EnableUnitMovement(unit, false);
         }
         unitsSelected.Clear();
+    }
+
+    private void DisableWorkerDetails()
+    {
+        PopulationText.enabled = true;
+        MoraleText.enabled = true;
+        TempText.enabled = true;
+
+        if (GameManager.Instance.currentGameState == GameManager.GameState.ChapterFive)
+        {
+            daysRemaining.enabled = false;
+        }
+
+        unitNameText.enabled = false;
+        unitSkillText.enabled = false;
+        unitPersonalityText.enabled = false;
+        currentTaskText.enabled = false;
+    }
+
+    private void EnableWorkerDetails()
+    {
+        PopulationText.enabled = false;
+        MoraleText.enabled = false;
+        TempText.enabled = false;
+        daysRemaining.enabled = false;
+
+        unitNameText.enabled = true;
+        unitSkillText.enabled = true;
+        unitPersonalityText.enabled = true;
+        currentTaskText.enabled = true;
     }
 }

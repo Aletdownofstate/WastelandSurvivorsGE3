@@ -11,6 +11,7 @@ public class IngameUI : MonoBehaviour
     public GameObject ingameUI;
     public GameObject pauseMenuUI;
     public Camera MainCamera;
+    public Camera mapCamera;
     public CameraController MainCameraController;
 
     [Header("Map UI")]
@@ -19,7 +20,6 @@ public class IngameUI : MonoBehaviour
 
     [Header("Build Menu UI")]
     public GameObject buildMenuUI;
-
 
     [Header("Pause Menu UI")]
     public Button exitBtn;
@@ -66,7 +66,7 @@ public class IngameUI : MonoBehaviour
 
         optionSideBtn.GetComponent<Button>().onClick.AddListener(delegate { optionMenuUI.SetActive(true); pauseMenuUI.SetActive(false); Time.timeScale = 0; AudioListener.pause = true; });
         menuSideBtn.GetComponent<Button>().onClick.AddListener(delegate { SetGamePause(true); });
-        homeSideBtn.GetComponent<Button>().onClick.AddListener(delegate { MainCamera.transform.position = new Vector3(10, 10, -2.99f); });
+        homeSideBtn.GetComponent<Button>().onClick.AddListener(delegate { MainCamera.transform.position = new Vector3(10, 10, -2.99f); mapCamera.transform.position = new Vector3(8.5f, 34.5f, 9.5f); });
 
         returnToPauseMenu.GetComponent<Button>().onClick.AddListener(delegate {optionMenuUI.SetActive(false); pauseMenuUI.SetActive(true); });
 
@@ -153,13 +153,17 @@ public class IngameUI : MonoBehaviour
     {
         if (screenResDropdown.value == 0)
         {
-            Screen.SetResolution(1920, 1080, isFullscreen);
+            Screen.SetResolution(2560, 1440, isFullscreen);
         }
         if (screenResDropdown.value == 1)
         {
-            Screen.SetResolution(1280, 720, isFullscreen);
+            Screen.SetResolution(1920, 1080, isFullscreen);
         }
         if (screenResDropdown.value == 2)
+        {
+            Screen.SetResolution(1280, 720, isFullscreen);
+        }
+        if (screenResDropdown.value == 3)
         {
             Screen.SetResolution(640, 480, isFullscreen);
         }
