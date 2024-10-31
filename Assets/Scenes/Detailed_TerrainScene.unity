@@ -5052,6 +5052,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSLimit
       objectReference: {fileID: 0}
+    - target: {fileID: 4471988595780805901, guid: 5c6a06fefbe1d3e40ae70f297a8fe48f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8308007612884067156, guid: 5c6a06fefbe1d3e40ae70f297a8fe48f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -85415,6 +85420,11 @@ PrefabInstance:
       objectReference: {fileID: 1138982035}
     - target: {fileID: 404717560924026835, guid: 74a790e4f184b0b4fb38342efceac4a6,
         type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 404717560924026835, guid: 74a790e4f184b0b4fb38342efceac4a6,
+        type: 3}
       propertyPath: unitPersonalityText
       value: 
       objectReference: {fileID: 442764656}
@@ -85471,22 +85481,22 @@ PrefabInstance:
     - target: {fileID: 6343505236909974106, guid: 74a790e4f184b0b4fb38342efceac4a6,
         type: 3}
       propertyPath: m_Color.a
-      value: 0.4627451
+      value: 0.07058824
       objectReference: {fileID: 0}
     - target: {fileID: 6343505236909974106, guid: 74a790e4f184b0b4fb38342efceac4a6,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.4901961
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6343505236909974106, guid: 74a790e4f184b0b4fb38342efceac4a6,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.40784317
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6343505236909974106, guid: 74a790e4f184b0b4fb38342efceac4a6,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.3921569
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6383557628838819025, guid: 74a790e4f184b0b4fb38342efceac4a6,
         type: 3}

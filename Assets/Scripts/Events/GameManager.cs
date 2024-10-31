@@ -313,7 +313,7 @@ public class GameManager : MonoBehaviour
 
         if (currentGameState == GameState.ChapterFour)
         {
-            //currentGoal.text = $"Objective:\n{PopulationManager.Instance.population}/6 Population";
+            currentGoal.text = $"Objective:\n{PopulationManager.Instance.population}/6 Population";
 
             if (!chapterFourFlags)
             {

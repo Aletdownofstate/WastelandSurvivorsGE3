@@ -9,28 +9,34 @@ public class UnitSelectionManager : MonoBehaviour
 {
     public static UnitSelectionManager Instance { get; set; }
 
+    [Header("Unit Management")]
     public List<GameObject> allUnitsList = new List<GameObject>();
     public List<GameObject> unitsSelected = new List<GameObject>();
 
-    [HideInInspector] public GameObject currentGroundMarker;
-
-    [SerializeField] private TextMeshProUGUI unitNameText, unitPersonalityText, unitSkillText, currentTaskText, PopulationText, MoraleText, TempText, daysRemaining;
-
-    [SerializeField] private AudioSource maleYes1, maleYes2, maleYes3, maleYes4;
-    [SerializeField] private AudioSource femaleYes1, femaleYes2, femaleYes3, femaleYes4;
-    [SerializeField] private AudioSource maleAffirm1;
-    [SerializeField] private AudioSource femaleAffirm1, femaleAffirm2, femaleAffirm3;
-    
-    public LayerMask clickable, groundLayerCast, woodLayer, metalLayer, foodLayer, waterLayer;
+    [Header("Layer Management")]
+    public LayerMask clickable;
+    public LayerMask groundLayer, woodLayer, metalLayer, foodLayer, waterLayer;
     public GameObject groundMarker;
+    [HideInInspector] public GameObject currentGroundMarker;
 
     private Transform dropOffPoint;
     private Camera cam;
     private int unitsMoving;
-
     [SerializeField] private float unitSpreadRadius = 2.0f;
 
     private bool areWorkerDetailsEnabled = false;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource maleAffirm1;
+    [SerializeField] private AudioSource femaleAffirm1, femaleAffirm2, femaleAffirm3;
+    [SerializeField] private AudioSource maleYes1, maleYes2, maleYes3, maleYes4;
+    [SerializeField] private AudioSource femaleYes1, femaleYes2, femaleYes3, femaleYes4;
+
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI unitNameText;
+    [SerializeField] private TextMeshProUGUI unitPersonalityText, unitSkillText, currentTaskText;
+    [SerializeField] private TextMeshProUGUI PopulationText, MoraleText, TempText, daysRemaining;
+
 
     private void Awake()
     {
@@ -151,7 +157,7 @@ public class UnitSelectionManager : MonoBehaviour
 
             // Move to a position
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayerCast))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
             {
                 Vector3 primaryDestination = hit.point;
 
@@ -335,11 +341,13 @@ public class UnitSelectionManager : MonoBehaviour
 
     private void DisableWorkerDetails()
     {
+        areWorkerDetailsEnabled = false;
+
         PopulationText.enabled = true;
         MoraleText.enabled = true;
         TempText.enabled = true;        
 
-        if (areWorkerDetailsEnabled & (GameManager.Instance.currentGameState == GameManager.GameState.ChapterFive || 
+        if (!areWorkerDetailsEnabled & (GameManager.Instance.currentGameState == GameManager.GameState.ChapterFive || 
             GameManager.Instance.currentGameState == GameManager.GameState.End))
         {
             daysRemaining.enabled = true;
@@ -349,8 +357,6 @@ public class UnitSelectionManager : MonoBehaviour
         unitSkillText.enabled = false;
         unitPersonalityText.enabled = false;
         currentTaskText.enabled = false;
-
-        areWorkerDetailsEnabled = false;
     }
 
     private void EnableWorkerDetails()

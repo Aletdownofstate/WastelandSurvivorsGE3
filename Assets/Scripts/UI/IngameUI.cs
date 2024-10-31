@@ -76,7 +76,6 @@ public class IngameUI : MonoBehaviour
 
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
         {
             SetGamePause(true);
@@ -124,7 +123,8 @@ public class IngameUI : MonoBehaviour
             buildMenuUI.SetActive(false);
             miniMapUI.SetActive(false);
             AudioListener.pause = true;
-        } else if (setPause == false)
+        } 
+        else if (setPause == false)
         {
             Time.timeScale = 1;
             pauseMenuUI.SetActive(false);

@@ -44,7 +44,6 @@ public class TransitionManager : MonoBehaviour
     {
         if (canFadeOut)
         {
-            //transition.SetActive(true);
             cg.alpha += Time.deltaTime / 2;
             if (cg.alpha == 0)
             {

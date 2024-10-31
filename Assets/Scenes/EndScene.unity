@@ -315,9 +315,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Project Lead: Marc Rigg\n\nLead Programmer: Marc Rigg\n\nLead Environment
     Artist: Herald Xhafa \n\nLead UI Developer: Fayzaan Ali\n\nGameplay Designer:
-    Marc Rigg, Herald Xhafa, Fayzaan Ali, Matthew Pickard\nEnvironment Designer:
-    Marc Rigg, Herald Xhafa, Matthew Pickard\n3D Art & Animation: Herald Xhafa, Matthew
-    Pickard\nSound Designer: Marc Rigg"
+    Fayzaan Ali, Matthew Pickard, Marc Rigg, Herald Xhafa\nEnvironment Designer:
+    Matthew Pickard, Marc Rigg, Herald Xhafa\n3D Art & Animation: Matthew Pickard,
+    Herald Xhafa\nSound Designer: Marc Rigg"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
