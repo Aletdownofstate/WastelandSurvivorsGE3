@@ -22,7 +22,6 @@ public class NameManager : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(this);
     }
 
     public MaleWorkerName GetMaleWorkerName()

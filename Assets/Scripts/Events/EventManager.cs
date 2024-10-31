@@ -35,7 +35,6 @@ public class EventManager : MonoBehaviour
             Instance = this;
         }
         eventPopUp.SetActive(false);
-        DontDestroyOnLoad(this);
     }
 
     private void Start()

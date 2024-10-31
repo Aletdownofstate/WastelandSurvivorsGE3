@@ -37,8 +37,6 @@ public class MoraleManager : MonoBehaviour
             Instance = this;
         }
 
-        DontDestroyOnLoad(this);
-
         morale = 5;
     }
 

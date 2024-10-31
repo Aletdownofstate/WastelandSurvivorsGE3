@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,9 +10,10 @@ public class GameManager : MonoBehaviour
 
     private FischlWorks_FogWar.csFogWar fogWar;
 
-    [SerializeField] GameObject homePoint;
-    [SerializeField] GameObject maleWorkerA, maleWorkerB, femaleWorker;
-    [SerializeField] GameObject warehouseButton, waterTankButton, medicalTentButton, spawnWorkerButton;
+    [SerializeField] private GameObject homePoint;
+    [SerializeField] private GameObject maleWorkerA, maleWorkerB, femaleWorker;
+    [SerializeField] private GameObject warehouseButton, waterTankButton, medicalTentButton, spawnWorkerButton;
+    [SerializeField] private TextMeshProUGUI currentGoal;
 
     private CameraController cameraController;
 
@@ -40,7 +43,6 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(this);
 
         cameraController = Camera.main.GetComponent<CameraController>();
 
@@ -66,6 +68,8 @@ public class GameManager : MonoBehaviour
         if (currentGameState == GameState.Intro)
         {
             TransitionManager.Instance.canFadeIn = true;
+
+            currentGoal.enabled = false;
             
             if (!startDelay && isDelayComplete)
             {
@@ -86,16 +90,27 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Gather 500 of each material & build two tents
+        // Gather 500 of each material & build two tents        
 
         if (currentGameState == GameState.ChapterOne)
         {
             cameraController.canPlayerContol = true;
 
+            GameObject[] tents = GameObject.FindGameObjectsWithTag("Tent");
             int food = ResourceManager.Instance.GetResourceAmount("Food");
             int water = ResourceManager.Instance.GetResourceAmount("Water");
             int wood = ResourceManager.Instance.GetResourceAmount("Wood");
             int metal = ResourceManager.Instance.GetResourceAmount("Metal");
+
+            int tentsAmount = tents.Length -1;
+
+            currentGoal.enabled = true;
+            currentGoal.text = $"Objective:\n" +
+                $"{food}/500 Food\n" +
+                $"{water}/500 Water\n" +
+                $"{wood}/500 Wood\n" +
+                $"{metal}/500 Metal\n" +
+                $"{tentsAmount}/2 Tents";
 
             if (!chapterOneGoalOne)
             {
@@ -105,8 +120,6 @@ public class GameManager : MonoBehaviour
                     Debug.Log($"{currentGameState}: Goal One complete");
                 }
             }
-
-            GameObject[] tents = GameObject.FindGameObjectsWithTag("Tent");
 
             if (!chapterOneGoalTwo)
             {
@@ -170,7 +183,7 @@ public class GameManager : MonoBehaviour
         // Build a warehouse
 
         if (currentGameState == GameState.ChapterTwo)
-        {            
+        {
             if (!isChapterStarted)
             {
                 isDelayComplete = false;
@@ -181,6 +194,10 @@ public class GameManager : MonoBehaviour
             }
 
             GameObject[] warehouses = GameObject.FindGameObjectsWithTag("Warehouse");
+
+            int warehouseNumber = warehouses.Length;
+
+            currentGoal.text = $"Objective:\n{warehouseNumber}/1 Warehouses";
 
             if (!chapterTwoGoalOne)
             {
@@ -242,6 +259,8 @@ public class GameManager : MonoBehaviour
 
         if (currentGameState == GameState.ChapterThree)
         {
+            currentGoal.text = $"Objective:\nFind the communication tower";
+
             if (!chapterThreeFlags)
             {
                 Debug.Log("Resetting the chapter flags");
@@ -294,6 +313,8 @@ public class GameManager : MonoBehaviour
 
         if (currentGameState == GameState.ChapterFour)
         {
+            //currentGoal.text = $"Objective:\n{PopulationManager.Instance.population}/6 Population";
+
             if (!chapterFourFlags)
             {
                 Debug.Log("Resetting the chapter flags");
@@ -377,6 +398,12 @@ public class GameManager : MonoBehaviour
             int wood = ResourceManager.Instance.GetResourceAmount("Wood");
             int metal = ResourceManager.Instance.GetResourceAmount("Metal");
 
+            currentGoal.text = $"Objective:\n" +
+                $"{food}/10000 Food\n" +
+                $"{water}/10000 Water\n" +
+                $"{wood}/10000 Wood\n" +
+                $"{metal}/10000 Metal\n";
+
             if (!chapterFiveGoal)
             {
                 if (wood >= 10000 && metal >= 10000 && water >= 10000 && food >= 10000)
@@ -426,9 +453,15 @@ public class GameManager : MonoBehaviour
 
         if (currentGameState == GameState.End)
         {
+            currentGoal.enabled = false;
+
             if (TimeManager.Instance.daysRemaining == 0)
             {
                 TransitionManager.Instance.canFadeOut = true;
+
+                StartCoroutine(Delay(3.0f));
+
+                SceneManager.LoadScene(3);
             }
         }
     }

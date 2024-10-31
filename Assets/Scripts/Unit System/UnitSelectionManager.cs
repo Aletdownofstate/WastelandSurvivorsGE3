@@ -28,7 +28,9 @@ public class UnitSelectionManager : MonoBehaviour
     private Camera cam;
     private int unitsMoving;
 
-    [SerializeField] private float unitSpreadRadius = 2.0f;    
+    [SerializeField] private float unitSpreadRadius = 2.0f;
+
+    private bool areWorkerDetailsEnabled = false;
 
     private void Awake()
     {
@@ -337,7 +339,8 @@ public class UnitSelectionManager : MonoBehaviour
         MoraleText.enabled = true;
         TempText.enabled = true;        
 
-        if (GameManager.Instance.currentGameState == GameManager.GameState.ChapterFive)
+        if (areWorkerDetailsEnabled & (GameManager.Instance.currentGameState == GameManager.GameState.ChapterFive || 
+            GameManager.Instance.currentGameState == GameManager.GameState.End))
         {
             daysRemaining.enabled = true;
         }
@@ -346,10 +349,14 @@ public class UnitSelectionManager : MonoBehaviour
         unitSkillText.enabled = false;
         unitPersonalityText.enabled = false;
         currentTaskText.enabled = false;
+
+        areWorkerDetailsEnabled = false;
     }
 
     private void EnableWorkerDetails()
     {
+        areWorkerDetailsEnabled = true;
+
         PopulationText.enabled = false;
         MoraleText.enabled = false;
         TempText.enabled = false;
