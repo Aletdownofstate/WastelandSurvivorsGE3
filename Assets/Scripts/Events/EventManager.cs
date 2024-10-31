@@ -137,7 +137,7 @@ public class EventManager : MonoBehaviour
             switch (currentSocialEvent)
             {
                 case SocialEvent.Fight:
-                    InitialiseEventText($"EVENT!", $"A fight has broken out!", $"Morale has slightly decreased");
+                    InitialiseEventText($"FIGHT!", $"A fight has broken out!", $"Morale has slightly decreased");
                     ShowEventUI();
                     break;
             }

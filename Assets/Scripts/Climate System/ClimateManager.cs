@@ -55,7 +55,7 @@ public class ClimateManager : MonoBehaviour
 
         if (temp < 10 && !isRaining)
         {
-            main.startLifetime = 1;
+            main.startLifetime = 3;
             isRaining = true;
             Debug.Log("It has started raining");
         }

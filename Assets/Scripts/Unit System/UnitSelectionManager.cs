@@ -335,11 +335,11 @@ public class UnitSelectionManager : MonoBehaviour
     {
         PopulationText.enabled = true;
         MoraleText.enabled = true;
-        TempText.enabled = true;
+        TempText.enabled = true;        
 
         if (GameManager.Instance.currentGameState == GameManager.GameState.ChapterFive)
         {
-            daysRemaining.enabled = false;
+            daysRemaining.enabled = true;
         }
 
         unitNameText.enabled = false;
