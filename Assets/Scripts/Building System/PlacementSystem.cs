@@ -12,6 +12,7 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private ObjectsDatabaseSO database;
     [SerializeField] private UnitSelectionBox unitSelectionBox;
     [SerializeField] private PreviewSystem preview;
+    [SerializeField] private AudioSource buildSound;
 
     private GridData floorData, furnitureData;
     private List<GameObject> placedGameObjects = new();
@@ -204,7 +205,16 @@ public class PlacementSystem : MonoBehaviour
                 waterTowerObject.OnPlace();
             }
 
+            MedicalTentObject medicalTentObject = newObject.GetComponent<MedicalTentObject>();
+            if (medicalTentObject != null)
+            {
+                medicalTentObject.OnPlace();
+            }
+
             //
+            
+            buildSound.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+            buildSound.Play();
 
             placedGameObjects.Add(newObject);
             GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ? floorData : furnitureData;

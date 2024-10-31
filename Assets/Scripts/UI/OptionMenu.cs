@@ -22,20 +22,18 @@ public class OptionMenu : MonoBehaviour
 
     private bool isFullscreen;
 
-    public static int fpsValue;
-    public static float volumeValue;
-    public static float cameraSpeedValue;
+    public static int fpsValue = 60;
+    public static float volumeValue = 1;
+    public static float cameraSpeedValue = 20;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        returnToPauseMenu.GetComponent<Button>().onClick.AddListener(delegate { optionMenuUI.SetActive(false); mainMenuMenuUI.SetActive(true); });
+        returnToPauseMenu.GetComponent<Button>().onClick.AddListener(delegate { optionMenuUI.SetActive(false); mainMenuMenuUI.SetActive(true); });        
         setFullscreen();
         setRes();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         volumeValue = volumeSlider.value;
         displayVolume.text = volumeSlider.value.ToString("F2");
@@ -65,13 +63,17 @@ public class OptionMenu : MonoBehaviour
     {
         if (screenResDropdown.value == 0)
         {
-            Screen.SetResolution(1920, 1080, isFullscreen);
+            Screen.SetResolution(2560, 1440, isFullscreen);
         }
         if (screenResDropdown.value == 1)
         {
-            Screen.SetResolution(1280, 720, isFullscreen);
+            Screen.SetResolution(1920, 1080, isFullscreen);
         }
         if (screenResDropdown.value == 2)
+        {
+            Screen.SetResolution(1280, 720, isFullscreen);
+        }
+        if (screenResDropdown.value == 3)
         {
             Screen.SetResolution(640, 480, isFullscreen);
         }

@@ -23,14 +23,16 @@ public class WorkerTaskManager : MonoBehaviour
     public PersonalityManager.PersonalityType personalityType;
     private float gatheringBonus;
 
-    public NameManager.WorkerName workerName;
+    public NameManager.MaleWorkerName maleWorkerName;
+    public NameManager.FemaleWorkerName femaleWorkerName;
     public SkillsManager.Skill workerSkill;
+    public string workerName = null;
     private int woodSkillBonus = 0;
     private int metalSkillBonus = 0;
     private int foodSkillBonus = 0;
 
     public float gatherDuration = 10.0f;
-    public int maxCarryAmount = 50;
+    public int maxCarryAmount = 100;
     private int currentResources = 0;
     private string resourceType;    
 
@@ -47,13 +49,23 @@ public class WorkerTaskManager : MonoBehaviour
 
     private void Start()
     {
-        workerName = NameManager.Instance.GetWorkerName();
+        if (gameObject.name.Contains("Female"))
+        {
+            femaleWorkerName = NameManager.Instance.GetFemaleWorkerName();
+            workerName = femaleWorkerName.ToString();
+        }
+        else
+        {
+            maleWorkerName = NameManager.Instance.GetMaleWorkerName();
+            workerName = maleWorkerName.ToString();
+        }
+        
         workerSkill = SkillsManager.Instance.GetSkill();
         personalityType = PersonalityManager.Instance.ChoosePersonality();
 
         switch (personalityType)
         {
-            case PersonalityManager.PersonalityType.HardWorking:
+            case PersonalityManager.PersonalityType.Hardworking:
                 gatheringBonus = -2.0f;
                 break;
             case PersonalityManager.PersonalityType.Lazy:
@@ -66,10 +78,10 @@ public class WorkerTaskManager : MonoBehaviour
                 MoraleManager.Instance.DecreaseMorale();
                 break;
             case PersonalityManager.PersonalityType.Strong:
-                maxCarryAmount += 10;
+                maxCarryAmount += 25;
                 break;
             case PersonalityManager.PersonalityType.Weak:
-                maxCarryAmount -= 10;
+                maxCarryAmount -= 25;
                 break;
         }
 
@@ -78,19 +90,19 @@ public class WorkerTaskManager : MonoBehaviour
             case SkillsManager.Skill.None:                
                 break;
             case SkillsManager.Skill.Woodworker:
-                woodSkillBonus = 10;
+                woodSkillBonus = 25;
                 metalSkillBonus = 0;
                 foodSkillBonus = 0;
                 break;
             case SkillsManager.Skill.Metalworker:
                 woodSkillBonus = 0;
-                metalSkillBonus = 10;
+                metalSkillBonus = 25;
                 foodSkillBonus = 0;
                 break;
             case SkillsManager.Skill.Scavenger:
                 woodSkillBonus = 0;
                 metalSkillBonus = 0;
-                foodSkillBonus = 10;
+                foodSkillBonus = 25;
                 break;
             case SkillsManager.Skill.NaturalLeader:
                 MoraleManager.Instance.IncreaseMorale();
@@ -120,6 +132,9 @@ public class WorkerTaskManager : MonoBehaviour
 
         switch (currentWorkerState)
         {
+            case WorkerState.Idle:                
+                break;
+
             case WorkerState.MovingToResource:
 
                 if (resourceTarget == null)
@@ -148,10 +163,7 @@ public class WorkerTaskManager : MonoBehaviour
                 {
                     DepositResources();
                 }
-                break;
-
-            case WorkerState.Idle:
-                break;
+                break;            
         }
 
         // Animations

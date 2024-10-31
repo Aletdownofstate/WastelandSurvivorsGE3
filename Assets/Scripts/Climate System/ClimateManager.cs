@@ -15,14 +15,8 @@ public class ClimateManager : MonoBehaviour
     private int tempOffset;
     private int prevTemp;
 
-    private bool isRaining = false;
-    private bool isFading = false;
-    private bool canThunder = true;
-    private bool canWolves = true;
-    private bool isLightFading = false;
-    private bool isRainAudioPlaying = false;
-    private bool isWindAudioPlaying = false;
-    private bool areBirdsSinging = false;
+    private bool isRaining, isFading, isLightFading, isRainAudioPlaying, isWindAudioPlaying, areBirdsSinging = false;    
+    private bool canThunder, canWolves = true;
 
     private void Awake()
     {
@@ -75,14 +69,14 @@ public class ClimateManager : MonoBehaviour
         if (isRaining && !isRainAudioPlaying && !isFading && !isLightFading)
         {
             isRainAudioPlaying = true;
-            StartCoroutine(AudioStart(rainSound, 0.6f, 1.0f));
+            StartCoroutine(AudioStart(rainSound, 0.0f, 0.6f, 1.0f));
             StartCoroutine(LightStartFade());
             Debug.Log($"{rainSound} is playing");
         }
         else if (!isRaining && isRainAudioPlaying && !isFading && !isLightFading)
         {
             isRainAudioPlaying = false;
-            StartCoroutine(AudioStop(rainSound, 0.0f, 1.0f));
+            StartCoroutine(AudioStop(rainSound, 0.6f, 0.0f, 1.0f));
             StartCoroutine(LightEndFade());
             Debug.Log($"{rainSound} has stopped playing");
         }
@@ -99,13 +93,13 @@ public class ClimateManager : MonoBehaviour
         if (isRaining && !isFading && !isWindAudioPlaying)
         {
             isWindAudioPlaying = true;
-            StartCoroutine(AudioStart(strongWindSound, 1.0f, 1.0f));
+            StartCoroutine(AudioStart(strongWindSound, 0.0f, 1.0f, 1.0f));
             Debug.Log($"{strongWindSound} is playing");
         }
         else if (!isRaining && !isFading && isWindAudioPlaying)
         {
             isWindAudioPlaying = false;
-            StartCoroutine(AudioStop(strongWindSound, 0.0f, 1.0f));
+            StartCoroutine(AudioStop(strongWindSound, 1.0f, 0.0f, 1.0f));
             Debug.Log($"{strongWindSound} has stopped playing");
         }
 
@@ -114,12 +108,12 @@ public class ClimateManager : MonoBehaviour
         if (!isRaining && temp >= 14 && !isFading && !areBirdsSinging)
         {
             areBirdsSinging = true;
-            StartCoroutine(AudioStart(birdsSound, 1.2f, 1.0f));
+            StartCoroutine(AudioStart(birdsSound, 0.0f, 1.35f, 1.0f));
         }
         else if (temp < 14 && areBirdsSinging)
         {
             areBirdsSinging = false;
-            StartCoroutine(AudioStop(birdsSound, 0.0f, 1.0f));
+            StartCoroutine(AudioStop(birdsSound, 1.35f, 0.0f, 1.0f));
         }
 
         // Wolves
@@ -170,26 +164,26 @@ public class ClimateManager : MonoBehaviour
         StartCoroutine(Temperature());
     }
 
-    private IEnumerator AudioStart(AudioSource audioSource, float endVolume, float pitch)
+    private IEnumerator AudioStart(AudioSource audioSource, float startVolume, float endVolume, float pitch)
     {
         isFading = true;
         audioSource.Play();
-        StartCoroutine(SoundFade(audioSource, endVolume, pitch));
+        StartCoroutine(SoundFade(audioSource, startVolume, endVolume, pitch));
         yield return new WaitForSeconds(3.0f);
         isFading = false;
     }    
 
-    private IEnumerator AudioStop(AudioSource audioSource, float endVolume, float pitch)
+    private IEnumerator AudioStop(AudioSource audioSource, float startVolume, float endVolume, float pitch)
     {
         isFading = true;
 
-        StartCoroutine(SoundFade(rainSound, endVolume, pitch));
+        StartCoroutine(SoundFade(rainSound, startVolume, endVolume, pitch));
         yield return new WaitForSeconds(3.0f);
         audioSource.Stop();        
         isFading = false;
     }
 
-    private IEnumerator SoundFade(AudioSource audioSource, float endVolume, float pitch)
+    private IEnumerator SoundFade(AudioSource audioSource, float startVolume,  float endVolume, float pitch)
     {
         audioSource.pitch = pitch;        
         float currentTime = 0.0f;
@@ -197,7 +191,7 @@ public class ClimateManager : MonoBehaviour
         {
             currentTime += Time.deltaTime;
             float t = Mathf.Clamp01(currentTime / 3);
-            audioSource.volume = Mathf.Lerp(0.0f, endVolume, t);
+            audioSource.volume = Mathf.Lerp(startVolume, endVolume, t);
             yield return null;
         }
         audioSource.volume = endVolume;

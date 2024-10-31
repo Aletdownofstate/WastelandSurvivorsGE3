@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
 
-    [SerializeField] private AudioSource windSound;
+    [SerializeField] private AudioSource windSound, bgmSound;
 
     private void Awake()
     {
@@ -23,7 +23,8 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SoundFadeIn(windSound, 1.25f, 1.0f));
+        StartCoroutine(SoundFadeIn(windSound, 1.5f, 1.0f));
+        StartCoroutine(SoundFadeIn(bgmSound, 0.1f, 1.0f));
     }
 
     private IEnumerator SoundFadeIn(AudioSource audioSource, float volume, float pitch)

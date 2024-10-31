@@ -11,6 +11,8 @@ public class ResourceManager : MonoBehaviour
 
     private int foodCap, waterCap, woodCap, metalCap;
 
+    private bool isDelayed = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -23,6 +25,11 @@ public class ResourceManager : MonoBehaviour
         }
 
         InitialiseResources();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(Delay());
     }
 
     private void Update()
@@ -42,6 +49,18 @@ public class ResourceManager : MonoBehaviour
         if (GetResourceAmount("Water") > waterCap)
         {
             resources["Water"] = waterCap;
+        }
+
+        // Depletes food and water per active unit
+
+        if (isDelayed)
+        {
+            isDelayed = false;
+
+            SubtractResource("Food", 10 * PopulationManager.Instance.numberOfUnits.Count);
+            SubtractResource("Water", 10 * PopulationManager.Instance.numberOfUnits.Count);
+
+            StartCoroutine(Delay());
         }
     }
 
@@ -108,5 +127,13 @@ public class ResourceManager : MonoBehaviour
                 Debug.Log($"Food Capacity increased to {foodCap}");
                 break;
         }
+    }
+
+    private IEnumerator Delay()
+    {
+        Debug.Log("Starting Resource Manager delay (90s remaining)");
+        yield return new WaitForSeconds(90.0f);
+        Debug.Log("Resource Manager delay complete");
+        isDelayed = true;
     }
 }

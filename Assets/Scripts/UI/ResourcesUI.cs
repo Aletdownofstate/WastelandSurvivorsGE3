@@ -6,6 +6,11 @@ public class ResourcesUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI woodText, waterText, foodText, metalText, populationText, moraleText, temperatureText, dayCountdownText, fpsText;
     public float deltaTime;
 
+    private void Start()
+    {
+        dayCountdownText.enabled = false;
+    }
+
 
     void Update()
     {
@@ -15,10 +20,10 @@ public class ResourcesUI : MonoBehaviour
 
         temperatureText.text = $"Temp: {ClimateManager.Instance.temp}C";
 
-        woodText.text = $"Wood: {ResourceManager.Instance.GetResourceAmount("Wood")}";
-        waterText.text = $"Water: {ResourceManager.Instance.GetResourceAmount("Water")}";
-        foodText.text = $"Food: {ResourceManager.Instance.GetResourceAmount("Food")}";
-        metalText.text = $"Metal: {ResourceManager.Instance.GetResourceAmount("Metal")}";
+        woodText.text = $"{ResourceManager.Instance.GetResourceAmount("Wood")}";
+        waterText.text = $"{ResourceManager.Instance.GetResourceAmount("Water")}";
+        foodText.text = $"{ResourceManager.Instance.GetResourceAmount("Food")}";
+        metalText.text = $"{ResourceManager.Instance.GetResourceAmount("Metal")}";
 
         dayCountdownText.text = $"Days Remaining Until Winter: {TimeManager.Instance.daysRemaining}";        
 
@@ -26,5 +31,9 @@ public class ResourcesUI : MonoBehaviour
         float fps = 1.0f / deltaTime;
         fpsText.text = "FPS: " + Mathf.Ceil(fps).ToString();
 
+        if (GameManager.Instance.currentGameState == GameManager.GameState.ChapterFive)
+        {
+            dayCountdownText.enabled = true;
+        }
     }
 }
