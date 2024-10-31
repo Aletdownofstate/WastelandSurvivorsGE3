@@ -19,7 +19,6 @@ public class SkillsManager : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(this);
     }
 
     public Skill GetSkill()

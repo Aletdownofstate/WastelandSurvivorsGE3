@@ -19,7 +19,6 @@ public class TimeManager : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(this);
     }    
 
     public void StartGameDay()

@@ -16,8 +16,13 @@ public class CameraController : MonoBehaviour
 
     public bool canPlayerContol = false;
 
+    [SerializeField] private GameObject workerPrefab; // For Testing
+    [SerializeField] private GameObject spawnPointD; // For Testing
+
     private void Update()
     {
+        // For Testing
+
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
             ResourceManager.Instance.AddResource("Food", 1000);
@@ -26,10 +31,21 @@ public class CameraController : MonoBehaviour
             ResourceManager.Instance.AddResource("Water", 1000);
         }
 
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {            
+            GameObject worker = Instantiate(workerPrefab, spawnPointD.transform.position, Quaternion.identity);
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightShift))
+        {
+            TimeManager.Instance.daysRemaining = 1;
+        }
+
+        // End Testing
+
         if (Input.GetKeyDown(KeyCode.H))
         {
-            playerCamera.transform.position = new Vector3(10, 10, -2.99f);
-            //miniMapCamera.transform.position = new Vector3(10, 51, 13);
+            playerCamera.transform.position = new Vector3(10, 10, -2.99f);            
             miniMapCamera.transform.position = new Vector3(8.5f, 34.5f, 9.5f);
 
             Debug.Log("Returning camera to homepoint");

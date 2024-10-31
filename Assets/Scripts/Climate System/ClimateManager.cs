@@ -28,7 +28,6 @@ public class ClimateManager : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(this);
     }
 
     private void Start()

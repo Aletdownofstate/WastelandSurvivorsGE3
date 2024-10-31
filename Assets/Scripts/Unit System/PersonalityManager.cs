@@ -19,8 +19,6 @@ public class PersonalityManager : MonoBehaviour
         {
             Instance = this;
         }
-
-        DontDestroyOnLoad(this);
     }
 
     public PersonalityType ChoosePersonality()

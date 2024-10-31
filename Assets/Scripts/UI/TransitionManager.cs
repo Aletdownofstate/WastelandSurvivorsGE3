@@ -26,8 +26,7 @@ public class TransitionManager : MonoBehaviour
             Instance = this;
         }
         transition.SetActive(true);
-        cg.alpha = 1;
-        DontDestroyOnLoad(this);
+        cg.alpha = 1;        
     }
 
     private void Start()

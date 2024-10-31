@@ -18,27 +18,11 @@ public class IntroSceneManager : MonoBehaviour
         windSound.Play();
         StartCoroutine(SoundFade(windSound, 0.0f, 2.0f, 1.0f));
 
-        float currentTime = 0.0f;
-        while (currentTime < 3.0f)
-        {
-            currentTime += Time.deltaTime;
-            float t = Mathf.Clamp01(currentTime / 3);
-            cg.alpha = Mathf.Lerp(0, 1, t);
-            yield return null;
-        }
-        cg.alpha = 1;
+        StartCoroutine(Fade(cg, 0, 1));
 
         yield return new WaitForSeconds(5.0f);
 
-        currentTime = 0.0f;
-        while (currentTime < 3.0f)
-        {
-            currentTime += Time.deltaTime;
-            float t = Mathf.Clamp01(currentTime / 3);
-            cg.alpha = Mathf.Lerp(1, 0, t);
-            yield return null;
-        }
-        cg.alpha = 0;
+        StartCoroutine(Fade(cg, 1, 0));
 
         StartCoroutine(SoundFade(windSound, 2.0f, 0.0f, 1.0f));
 
@@ -60,5 +44,18 @@ public class IntroSceneManager : MonoBehaviour
             yield return null;
         }
         audioSource.volume = endVolume;
+    }
+
+    private IEnumerator Fade(CanvasGroup cg, float startAlpha, float endAlpha)
+    {
+        float currentTime = 0.0f;
+        while (currentTime < 3.0f)
+        {
+            currentTime += Time.deltaTime;
+            float t = Mathf.Clamp01(currentTime / 3);
+            cg.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
+            yield return null;
+        }
+        cg.alpha = endAlpha;
     }
 }
