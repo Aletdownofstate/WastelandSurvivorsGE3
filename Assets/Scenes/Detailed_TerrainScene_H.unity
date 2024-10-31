@@ -18,7 +18,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.5825027, g: 0.6603774, b: 0.6526516, a: 0.18431373}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.004
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -86866,13 +86866,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245e9872eeb20574184fbc3ade7414ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homePoint: {fileID: 0}
   maleWorkerA: {fileID: 6723119810302767364, guid: 6d3ec5cca91685b4ebac2bd61346a1f0,
     type: 3}
   maleWorkerB: {fileID: 5034902847406612841, guid: 9a3fe0b93054497469d77a601be68267,
     type: 3}
   femaleWorker: {fileID: 4354551788623535503, guid: ccd7bb8c9bfb51a40a9ea517c70a229b,
     type: 3}
+  warehouseButton: {fileID: 0}
+  waterTankButton: {fileID: 0}
+  medicalTentButton: {fileID: 0}
+  spawnWorkerButton: {fileID: 0}
   currentGameState: 0
+  chapterThreeGoalOne: 0
 --- !u!4 &2034090251
 Transform:
   m_ObjectHideFlags: 0
