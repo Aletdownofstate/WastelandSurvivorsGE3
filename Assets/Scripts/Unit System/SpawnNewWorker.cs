@@ -59,7 +59,6 @@ public class SpawnNewWorker : MonoBehaviour
             Debug.Log("Cannot spawn - Population cap reached or delay isn't completed");
             return;
         }
-
     }
 
     private IEnumerator SpawnDelay()

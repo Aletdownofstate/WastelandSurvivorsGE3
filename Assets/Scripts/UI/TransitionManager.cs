@@ -25,7 +25,8 @@ public class TransitionManager : MonoBehaviour
         {
             Instance = this;
         }
-        transition.SetActive(false);
+        transition.SetActive(true);
+        cg.alpha = 1;
         DontDestroyOnLoad(this);
     }
 
@@ -44,7 +45,7 @@ public class TransitionManager : MonoBehaviour
     {
         if (canFadeOut)
         {
-            transition.SetActive(true);
+            //transition.SetActive(true);
             cg.alpha += Time.deltaTime / 2;
             if (cg.alpha == 0)
             {

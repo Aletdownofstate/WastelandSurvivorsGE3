@@ -111,11 +111,11 @@ public class EventManager : MonoBehaviour
             switch (currentResourceEvent)
             {
                 case ResourceEvent.Food:
-                    InitialiseEventText($"EVENT!", $"Rats have gotten into our supplies!", $"{randomAmount} of food lost");
+                    InitialiseEventText($"Attention!", $"Rats have gotten into our supplies!", $"{randomAmount} of food lost");
                     ShowEventUI();
                     break;
                 case ResourceEvent.Water:
-                    InitialiseEventText($"EVENT!", $"Our water has been contaminated!", $"{ randomAmount} of water lost");
+                    InitialiseEventText($"Attention!", $"Our water has been contaminated!", $"{randomAmount} of water lost");
                     ShowEventUI();
                     break;
             }
@@ -126,7 +126,7 @@ public class EventManager : MonoBehaviour
             switch (currentWellbeingEvent)
             {
                 case WellbeingEvent.GenericIllness:
-                    InitialiseEventText($"Outbreak!", $"Some people have fallen ill!", $"Morale has slightly decreased");
+                    InitialiseEventText($"Attention!", $"Some people have fallen ill!", $"Morale has slightly decreased");
                     ShowEventUI();
                     break;
             }
@@ -137,7 +137,7 @@ public class EventManager : MonoBehaviour
             switch (currentSocialEvent)
             {
                 case SocialEvent.Fight:
-                    InitialiseEventText($"EVENT!", $"A fight has broken out!", $"Morale has slightly decreased");
+                    InitialiseEventText($"Attention!", $"A fight has broken out!", $"Morale has slightly decreased");
                     ShowEventUI();
                     break;
             }

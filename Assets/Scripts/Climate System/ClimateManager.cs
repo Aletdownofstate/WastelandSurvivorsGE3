@@ -55,7 +55,7 @@ public class ClimateManager : MonoBehaviour
 
         if (temp < 10 && !isRaining)
         {
-            main.startLifetime = 1;
+            main.startLifetime = 3;
             isRaining = true;
             Debug.Log("It has started raining");
         }
@@ -183,7 +183,7 @@ public class ClimateManager : MonoBehaviour
         isFading = false;
     }
 
-    private IEnumerator SoundFade(AudioSource audioSource, float startVolume,  float endVolume, float pitch)
+    public IEnumerator SoundFade(AudioSource audioSource, float startVolume,  float endVolume, float pitch)
     {
         audioSource.pitch = pitch;        
         float currentTime = 0.0f;

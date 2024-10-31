@@ -14,7 +14,12 @@ public class UnitSelectionManager : MonoBehaviour
 
     [HideInInspector] public GameObject currentGroundMarker;
 
-    [SerializeField] public TextMeshProUGUI unitNameText, unitPersonalityText, unitSkillText, currentTaskText, PopulationText, MoraleText, TempText, daysRemaining;
+    [SerializeField] private TextMeshProUGUI unitNameText, unitPersonalityText, unitSkillText, currentTaskText, PopulationText, MoraleText, TempText, daysRemaining;
+
+    [SerializeField] private AudioSource maleYes1, maleYes2, maleYes3, maleYes4;
+    [SerializeField] private AudioSource femaleYes1, femaleYes2, femaleYes3, femaleYes4;
+    [SerializeField] private AudioSource maleAffirm1;
+    [SerializeField] private AudioSource femaleAffirm1, femaleAffirm2, femaleAffirm3;
     
     public LayerMask clickable, groundLayerCast, woodLayer, metalLayer, foodLayer, waterLayer;
     public GameObject groundMarker;
@@ -157,11 +162,13 @@ public class UnitSelectionManager : MonoBehaviour
                 {
                     WorkerTaskManager taskManager = unit.GetComponent<WorkerTaskManager>();
 
+                    AffirmtiveSound(unit);
+
                     if (taskManager.currentWorkerState != WorkerTaskManager.WorkerState.Idle)
                     {
                         taskManager.InterruptCurrentTask();
                     }
-                }
+                }                
 
                 currentGroundMarker = Instantiate(groundMarker, primaryDestination, Quaternion.identity);
                 unitsMoving = unitsSelected.Count;
@@ -264,7 +271,7 @@ public class UnitSelectionManager : MonoBehaviour
             else
             {
                 EnableUnitMovement(rootUnit, false);
-                unitsSelected.Remove(rootUnit);
+                unitsSelected.Remove(unit);
             }
         }
         else
@@ -282,6 +289,7 @@ public class UnitSelectionManager : MonoBehaviour
             DeselectAll();
             unitsSelected.Add(workerNavmesh.gameObject);
             EnableUnitMovement(workerNavmesh.gameObject, true);
+            OnUnitSelectSound(unit);
         }
         else
         {
@@ -327,11 +335,11 @@ public class UnitSelectionManager : MonoBehaviour
     {
         PopulationText.enabled = true;
         MoraleText.enabled = true;
-        TempText.enabled = true;
+        TempText.enabled = true;        
 
         if (GameManager.Instance.currentGameState == GameManager.GameState.ChapterFive)
         {
-            daysRemaining.enabled = false;
+            daysRemaining.enabled = true;
         }
 
         unitNameText.enabled = false;
@@ -351,5 +359,119 @@ public class UnitSelectionManager : MonoBehaviour
         unitSkillText.enabled = true;
         unitPersonalityText.enabled = true;
         currentTaskText.enabled = true;
+    }
+
+    private void OnUnitSelectSound(GameObject unit)
+    {
+        AudioSource maleYes = null;
+        AudioSource femaleYes = null;
+
+        int randomMaleYes = UnityEngine.Random.Range(0, 4);
+        int randomFemaleYes = UnityEngine.Random.Range(0,4);
+
+        float pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+
+        switch (randomMaleYes)
+        {
+            case (0):
+                maleYes = maleYes1;
+                break;
+            case (1):
+                maleYes = maleYes2;
+                break;
+            case (2):
+                maleYes = maleYes3;
+                break;
+            case (3):
+                maleYes = maleYes4;
+                break;
+        }
+
+        switch (randomFemaleYes)
+        {
+            case (0):
+                femaleYes = femaleYes1;
+                break;
+            case (1):
+                femaleYes = femaleYes2;
+                break;
+            case (2):
+                femaleYes = femaleYes3;
+                break;
+            case (3):
+                femaleYes = femaleYes4;
+                break;
+        }
+
+        if (unit.name.Contains("Female"))
+        {
+            femaleYes.pitch = pitch;
+            femaleYes.volume = 1.2f;
+            femaleYes.Play();
+            Debug.Log("Playing female 'yes' sound");
+        }
+        else if (unit.name.Contains("Male"))
+        {
+            maleYes.pitch = pitch;
+            maleYes.volume = 0.6f;
+            maleYes.Play();
+            Debug.Log("Playing male 'Yes' sound");
+        }
+    }
+
+    private void AffirmtiveSound(GameObject unit)
+    {
+        AudioSource maleAffirmative = null;
+        AudioSource femaleAffirmative = null;
+
+        int randomMale = UnityEngine.Random.Range(0, 2);
+        int randomFemale = UnityEngine.Random.Range(0, 2);
+
+        float pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+
+        switch (randomMale)
+        {
+            case (0):
+                maleAffirmative = femaleAffirm1;
+                maleAffirmative.pitch = 0.85f;
+                maleAffirmative.volume = 0.6f;
+                break;
+            case (1):
+                maleAffirmative = maleAffirm1;
+                maleAffirmative.pitch = pitch;
+                maleAffirmative.volume = 0.4f;
+                break;
+            case (2):
+                maleAffirmative = femaleAffirm2;
+                maleAffirmative.pitch = 0.85f;
+                maleAffirmative.volume = 0.6f;
+                break;
+        }
+
+        switch (randomFemale)
+        {
+            case (0):
+                femaleAffirmative = femaleAffirm1;
+                break;
+            case (1):
+                femaleAffirmative = femaleAffirm2;
+                break;
+            case (2):
+                femaleAffirmative = femaleAffirm3;
+                break;
+        }
+
+        if (unit.name.Contains("Female"))
+        {
+            femaleAffirmative.pitch = pitch;
+            femaleAffirmative.volume = 1.2f;
+            femaleAffirmative.Play();
+            Debug.Log("Playing female 'affirmative' sound");
+        }
+        else if (unit.name.Contains("Male"))
+        {            
+            maleAffirmative.Play();
+            Debug.Log("Playing male 'affirmative' sound");
+        }
     }
 }
