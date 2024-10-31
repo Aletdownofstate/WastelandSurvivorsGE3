@@ -183,7 +183,7 @@ public class ClimateManager : MonoBehaviour
         isFading = false;
     }
 
-    private IEnumerator SoundFade(AudioSource audioSource, float startVolume,  float endVolume, float pitch)
+    public IEnumerator SoundFade(AudioSource audioSource, float startVolume,  float endVolume, float pitch)
     {
         audioSource.pitch = pitch;        
         float currentTime = 0.0f;
