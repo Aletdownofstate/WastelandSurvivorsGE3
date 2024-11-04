@@ -38,7 +38,12 @@ public class CameraController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
-            TimeManager.Instance.daysRemaining = 1;
+            TimeManager.Instance.daysRemaining = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameManager.Instance.currentGameState = GameManager.GameState.End;
         }
 
         // End Testing

@@ -109,7 +109,7 @@ public class IngameUI : MonoBehaviour
         displayCameraSpeed.text = cameraSpeedSlider.value.ToString("F2");
 
         Application.targetFrameRate = (int)fpsSlider.value;
-        displayFPS.text = fpsSlider.value.ToString("F2");
+        displayFPS.text = fpsSlider.value.ToString();
     }
 
     void SetGamePause(bool setPause)

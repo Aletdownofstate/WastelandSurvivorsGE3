@@ -18,6 +18,7 @@ public class SoundManager : MonoBehaviour
         {
             Instance = this;
         }
+        DontDestroyOnLoad(this);
     }
 
     private void Start()

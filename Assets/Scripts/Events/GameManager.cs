@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,7 +27,7 @@ public class GameManager : MonoBehaviour
     private bool isChapterStarted = false;    
     private bool chapterOneGoalOne, chapterOneGoalTwo, chapterTwoGoalOne, chapterFourGoal, chapterFiveGoal;
     [HideInInspector] public bool chapterThreeGoalOne;
-    private bool chapterThreeFlags, chapterFourFlags, chapterFiveFlags, endFlags;
+    private bool chapterThreeFlags, chapterFourFlags, chapterFiveFlags, endFlags, endingFlag;
 
     private int tentAmount = 0;
     private int warehouseAmount = 0;
@@ -453,14 +452,31 @@ public class GameManager : MonoBehaviour
 
         if (currentGameState == GameState.End)
         {
+            if (!endFlags)
+            {
+                Debug.Log("Resetting the chapter flags");
+                isDelayComplete = false;
+                isEventVisible = false;
+                hasDelayTriggered = false;
+                startDelay = true;
+                endFlags = true;
+            }
+
             currentGoal.enabled = false;
 
-            if (TimeManager.Instance.daysRemaining == 0)
+            if (TimeManager.Instance.daysRemaining == 0 && !endingFlag)
             {
+                TransitionManager.Instance.cg.alpha = 0;
                 TransitionManager.Instance.canFadeOut = true;
 
-                StartCoroutine(Delay(3.0f));
+                endingFlag = true;
 
+                StartCoroutine(Delay(5.0f));                
+            }
+
+            if (isDelayComplete && endingFlag)
+            {                
+                Debug.Log("Loading the credits scene");
                 SceneManager.LoadScene(3);
             }
         }

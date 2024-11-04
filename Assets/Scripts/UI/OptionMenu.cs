@@ -43,7 +43,7 @@ public class OptionMenu : MonoBehaviour
 
         Application.targetFrameRate = (int)fpsSlider.value;
         fpsValue = (int)fpsSlider.value;
-        displayFPS.text = fpsSlider.value.ToString("F2");
+        displayFPS.text = fpsValue.ToString();
     }
 
     void setFullscreen()

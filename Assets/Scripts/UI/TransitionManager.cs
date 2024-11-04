@@ -8,7 +8,7 @@ public class TransitionManager : MonoBehaviour
     public static TransitionManager Instance { get; private set; }
 
     [SerializeField] private GameObject transition;
-    [SerializeField] private CanvasGroup cg;
+    public CanvasGroup cg;
 
     public bool canFadeIn;
     public bool canFadeOut;
@@ -36,24 +36,24 @@ public class TransitionManager : MonoBehaviour
 
     private void Update()
     {
-        FadeIn();
-        FadeOut();
+        FadeInFromBlack();
+        FadeOutToBlack();
     }
 
-    private void FadeOut()
+    private void FadeOutToBlack()
     {
         if (canFadeOut)
         {
-            cg.alpha += Time.deltaTime / 2;
-            if (cg.alpha == 0)
+            transition.SetActive(true);
+            cg.alpha += Time.deltaTime / 4;
+            if (cg.alpha == 1)
             {
-                canFadeOut = false;
-                transition.SetActive(false);                
+                canFadeOut = false;                
             }
         }
     }
 
-    private void FadeIn()
+    private void FadeInFromBlack()
     {
         if (canFadeIn)
         {

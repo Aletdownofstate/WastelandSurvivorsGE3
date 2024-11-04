@@ -24,7 +24,11 @@ public class PopulationManager : MonoBehaviour
             Instance = this;
         }
 
-        InitialiseCap();
+        InitialiseCap();        
+    }
+
+    private void Start()
+    {
         CalculatePopulation();
     }
 
