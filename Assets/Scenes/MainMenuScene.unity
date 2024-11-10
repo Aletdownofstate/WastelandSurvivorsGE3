@@ -2876,6 +2876,7 @@ MonoBehaviour:
   playBtn: {fileID: 743614146}
   optionBtn: {fileID: 1266459570}
   howToBtn: {fileID: 587009440}
+  quitBtn: {fileID: 166492171}
   transition: {fileID: 1473778590}
   cg: {fileID: 1473778592}
   mainMenuMenuUI: {fileID: 112219676}

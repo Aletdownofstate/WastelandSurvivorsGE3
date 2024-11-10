@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public Button playBtn;
     public Button optionBtn;
     public Button howToBtn;
+    public Button quitBtn;
 
     [SerializeField] private GameObject transition;
     [SerializeField] private CanvasGroup cg;
@@ -24,6 +25,7 @@ public class MainMenu : MonoBehaviour
         mainMenuMenuUI.SetActive(true);
         optionMenuUI.SetActive(false);        
         optionBtn.GetComponent<Button>().onClick.AddListener(delegate { mainMenuMenuUI.SetActive(false); optionMenuUI.SetActive(true); });
+        quitBtn.GetComponent<Button>().onClick.AddListener(delegate { Application.Quit(); });
     }
 
     private void Update()
